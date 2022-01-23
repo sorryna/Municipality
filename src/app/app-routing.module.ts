@@ -26,6 +26,22 @@ const routes: Routes = [
   {
     path: 'overdue-detail',
     loadChildren: () => import('./overdue-detail/overdue-detail.module').then( m => m.OverdueDetailPageModule)
+  },
+  {
+    path: 'qr',
+    loadChildren: () => import('./qr/qr.module').then( m => m.QRPageModule)
+  },
+  {
+    path: 'manage',
+    loadChildren: () => import('./manage/manage.module').then( m => m.ManagePageModule)
+  },
+  {
+    path: 'qroption',
+    loadChildren: () => import('./qroption/qroption.module').then( m => m.QROptionPageModule)
+  },
+  {
+    path: 'qrgenerate',
+    loadChildren: () => import('./qrgenerate/qrgenerate.module').then( m => m.QRGeneratePageModule)
   }
 ];
 

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>เลือก Option</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card-content class="table">
+    <table>
+      <tr>
+        <th>7/5</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr [routerLink]="['/qrgenerate']">
+        <td>รายเดือน</td>
+        <th>49 บาท</th>
+
+        <td><ion-icon name="arrow-forward"></ion-icon>
+        </td>
+      </tr>
+      <tr [routerLink]="['/qrgenerate']">
+        <td>รายปี</td>
+        <th>549 บาท</th>
+        <td><ion-icon name="arrow-forward"></ion-icon>
+        </td>
+      </tr>
+      <tr [routerLink]="['/qrgenerate']">
+        <td>ทั้งหมด</td>
+        <th>49 บาท</th>
+        <td><ion-icon name="arrow-forward"></ion-icon>
+        </td>
+      </tr>
+    </table>
+  </ion-card-content>
+</ion-content>
