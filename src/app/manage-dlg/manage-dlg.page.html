@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>เพิ่ม</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>บ้านเลขที่</ion-label>
+    <ion-input type="text" placeholder="ใส่บ้านเลขที่"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>หมู่ที่</ion-label>
+    <ion-input type="text" placeholder="ใส่หมู่ที่"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>ถนน</ion-label>
+    <ion-input type="text" placeholder="ใส่ถนน"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>ตำบล</ion-label>
+    <ion-input type="text" placeholder="ใส่ตำบล"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>อำเภอ</ion-label>
+    <ion-input type="text" placeholder="ใส่อำเภอ"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>จังหวัด</ion-label>
+    <ion-input type="text" placeholder="ใส่จังหวัด"></ion-input>
+  </ion-item>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="dismiss()" expand="block" fill="clear" shape="round" slot="end">
+      ยกเลิก
+    </ion-button>
+    <ion-button (click)="dismiss()" expand="block" fill="clear" shape="round" slot="end">
+      ตกลง
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

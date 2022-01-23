@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ManageDlgPage } from '../manage-dlg/manage-dlg.page';
 
 @Component({
   selector: 'app-manage',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManagePage implements OnInit {
 
-  constructor() { }
+  constructor(private dlg: ModalController) { }
 
   ngOnInit() {
+  }
+
+  async openModal(){
+    const modal = await this.dlg.create({
+      component: ManageDlgPage,
+      cssClass: 'dialog-modal-dlg-note',
+    });
+    return await modal.present();
   }
 
 }

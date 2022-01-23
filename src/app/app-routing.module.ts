@@ -42,6 +42,10 @@ const routes: Routes = [
   {
     path: 'qrgenerate',
     loadChildren: () => import('./qrgenerate/qrgenerate.module').then( m => m.QRGeneratePageModule)
+  },
+  {
+    path: 'manage-dlg',
+    loadChildren: () => import('./manage-dlg/manage-dlg.module').then( m => m.ManageDlgPageModule)
   }
 ];
 
