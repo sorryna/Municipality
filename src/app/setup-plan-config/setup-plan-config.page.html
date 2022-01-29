@@ -1,0 +1,40 @@
+<ion-content class="ion-padding">
+
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">ชื่อ</ion-label>
+      <ion-input class="ion-margin-top"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>กำหนดอัตราชำระค่าขยะ</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">ค่าชำระรายเดือน</ion-label>
+      <ion-input type="number" clearInput value="50" class="ion-margin-top"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">ค่าธรรมเนียมรายเดือน</ion-label>
+      <ion-input type="number" clearInput value="9" class="ion-margin-top"></ion-input>
+    </ion-item>
+    <ion-item lines="none"></ion-item>
+    <ion-item>
+      <ion-label position="stacked">ค่าชำระรายปี</ion-label>
+      <ion-input type="number" clearInput class="ion-margin-top"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">ค่าธรรมเนียมรายปี</ion-label>
+      <ion-input type="number" clearInput class="ion-margin-top"></ion-input>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="dismiss()" expand="block" fill="clear" shape="round" slot="end" color="medium">
+      ยกเลิก
+    </ion-button>
+    <ion-button (click)="dismiss()" expand="block" fill="clear" shape="round" slot="end">
+      ตกลง
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

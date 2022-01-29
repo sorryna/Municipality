@@ -46,7 +46,19 @@ const routes: Routes = [
   {
     path: 'manage-dlg',
     loadChildren: () => import('./manage-dlg/manage-dlg.module').then( m => m.ManageDlgPageModule)
+  },  {
+    path: 'setup-plan',
+    loadChildren: () => import('./setup-plan/setup-plan.module').then( m => m.SetupPlanPageModule)
+  },
+  {
+    path: 'apply-plan-dlg',
+    loadChildren: () => import('./apply-plan-dlg/apply-plan-dlg.module').then( m => m.ApplyPlanDlgPageModule)
+  },
+  {
+    path: 'setup-plan-config',
+    loadChildren: () => import('./setup-plan-config/setup-plan-config.module').then( m => m.SetupPlanConfigPageModule)
   }
+
 ];
 
 @NgModule({

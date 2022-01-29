@@ -1,132 +1,111 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>จัดการ</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding">
 
-<ion-content>
-<div>
-  <ion-button shape="round" (click)="openModal()">
-    <ion-label>เพิ่ม
+  <ion-breadcrumbs>
+    <ion-breadcrumb>
+      manage
+    </ion-breadcrumb>
+  </ion-breadcrumbs>
+
+  <ion-card>
+    <ion-button shape="round" (click)="openModal()">
       <ion-icon name="add-outline"></ion-icon>
+      <ion-label>เพิ่ม</ion-label>
+    </ion-button>
+    <ion-button shape="round">Upload</ion-button>
+    <input type="file" name="photo" />
+  </ion-card>
+
+  <ion-card class="ion-padding">
+    <ion-label>
+      <h2>อัตราการชำระเงิน</h2>
     </ion-label>
-  </ion-button>
-</div>
-<div>
-  <input type="file" name="photo" />
-  <ion-button shape="round">
-    <ion-icon name="add-outline"></ion-icon>
-  </ion-button>
-</div>
+    <ion-button shape="round" (click)="onSelectApplyPlan()">Apply Plan</ion-button>
+    <ion-button shape="round" routerLink="/setup-plan">Setup Plan</ion-button>
+  </ion-card>
 
 
   <ion-card-content class="table">
     <table>
       <tr>
         <th>รายการ</th>
-        <th>แก้ไข</th>
-        <th>ลบ</th>
+        <th>อัตราการชำระเงิน</th>
       </tr>
       <tr>
-        <td>7/5</td>
         <td>
-          <ion-button shape="round">
-            <ion-label>
-              <ion-icon name="build-outline"></ion-icon>
-            </ion-label>
-          </ion-button>
+          <ion-label>
+            <h2>พิมานคอนโดปาร์ค</h2>
+            <h3>
+              <ion-text color="medium">989/27 ตำบล ศิลา อำเภอเมืองขอนแก่น 40000</ion-text>
+            </h3>
+          </ion-label>
         </td>
         <td>
-          <ion-button shape="round" color="danger">
-            <ion-label>
-              <ion-icon name="close-outline"></ion-icon>
-            </ion-label>
-          </ion-button>
+          ขั้นต่ำ
         </td>
       </tr>
       <tr>
-        <td>12/6</td>
         <td>
-          <ion-button shape="round">
-            <ion-label>
-              <ion-icon name="build-outline"></ion-icon>
-            </ion-label>
-          </ion-button>
+          <ion-label>
+            <h2>แสนสิริ</h2>
+            <h3>
+              <ion-text color="medium">116/13 ตำบล ขามใหญ่ อำเภอเมืองอุบลราชธานี 34000</ion-text>
+            </h3>
+          </ion-label>
         </td>
         <td>
-          <ion-button shape="round" color="danger">
-            <ion-label>
-              <ion-icon name="close-outline"></ion-icon>
-            </ion-label>
-          </ion-button>
+          ขั้นต่ำ
         </td>
       </tr>
       <tr>
-        <td>7/2</td>
         <td>
-          <ion-button shape="round">
-            <ion-label>
-              <ion-icon name="build-outline"></ion-icon>
-            </ion-label>
-          </ion-button>
+          <ion-label>
+            <h2>โกลเด้นนีโอ</h2>
+            <h3>
+              <ion-text color="medium">112/73 ตำบลในเมือง อำเภอเมืองขอนแก่น 40000</ion-text>
+            </h3>
+          </ion-label>
         </td>
         <td>
-          <ion-button shape="round" color="danger">
-            <ion-label>
-              <ion-icon name="close-outline"></ion-icon>
-            </ion-label>
-          </ion-button>
+          ขั้นต่ำ
         </td>
       </tr>
       <tr>
-        <td>7/1</td>
         <td>
-          <ion-button shape="round" >
-            <ion-label>
-              <ion-icon name="build-outline"></ion-icon>
-            </ion-label>
-          </ion-button>
+          <ion-label>
+            <h2>อภิทาวน์</h2>
+            <h3>
+              <ion-text color="medium">7/40 ตำบลศิลา อำเภอเมืองขอนแก่น 40000</ion-text>
+            </h3>
+          </ion-label>
         </td>
         <td>
-          <ion-button shape="round" color="danger">
-            <ion-label>
-              <ion-icon name="close-outline"></ion-icon>
-            </ion-label>
-          </ion-button>
+          ขั้นต่ำ
         </td>
       </tr>
       <tr>
-        <td>919/3</td>
         <td>
-          <ion-button shape="round">
-            <ion-label>
-              <ion-icon name="build-outline"></ion-icon>
-            </ion-label>
-          </ion-button>
+          <ion-label>
+            <h2>พฤกษาแอร์พอร์ต</h2>
+            <h3>
+              <ion-text color="medium">1/17 ตำบลศิลา อำเภอเมืองขอนแก่น 40000</ion-text>
+            </h3>
+          </ion-label>
         </td>
         <td>
-          <ion-button shape="round" color="danger">
-            <ion-label>
-              <ion-icon name="close-outline"></ion-icon>
-            </ion-label>
-          </ion-button>
+          บ้านจัดสรร
         </td>
       </tr>
       <tr>
-        <td>989</td>
         <td>
-          <ion-button shape="round">
-            <ion-label>
-              <ion-icon name="build-outline"></ion-icon>
-            </ion-label>
-          </ion-button>
+          <ion-label>
+            <h2>พฤกษาแอร์พอร์ต</h2>
+            <h3>
+              <ion-text color="medium">2/17 ตำบลศิลา อำเภอเมืองขอนแก่น 40000</ion-text>
+            </h3>
+          </ion-label>
         </td>
         <td>
-          <ion-button shape="round" color="danger">
-            <ion-label>
-              <ion-icon name="close-outline"></ion-icon>
-            </ion-label>
-          </ion-button>
+          บ้านจัดสรร
         </td>
       </tr>
     </table>

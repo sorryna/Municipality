@@ -1,0 +1,31 @@
+<ion-content class="ion-padding">
+
+  <ion-breadcrumbs>
+    <ion-breadcrumb href="manage">
+      manage
+    </ion-breadcrumb>
+    <ion-breadcrumb>
+      setup plan
+    </ion-breadcrumb>
+  </ion-breadcrumbs>
+
+  <ion-item class="ion-no-padding" lines="none">
+    <ion-label>
+      <h3><b>รายการอัตราการชำระเงินทั้งหมด</b></h3>
+    </ion-label>
+    <ion-button class="no-shadow ion-no-margin" mode="md" color="danger" size="default" shape="round"
+      (click)="openModal()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <ion-list>
+    <ion-item mode="ios" button (click)="openModal()">
+      <ion-label>ขั้นต่ำ</ion-label>
+    </ion-item>
+    <ion-item mode="ios" button (click)="openModal()">
+      <ion-label>บ้านจัดสรร</ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
