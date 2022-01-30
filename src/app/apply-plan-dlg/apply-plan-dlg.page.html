@@ -1,83 +1,42 @@
 <ion-content class="ion-padding">
 
-  <ion-list lines="none">
-    <ion-item lines="inset">
-      <ion-label position="stacked">Apply with plan</ion-label>
-      <ion-select value="1" interface="popover" placeholder="โปรดเลือก Plan" class="ion-margin-top">
-        <ion-select-option value="1">ขั้นต่ำ</ion-select-option>
-        <ion-select-option value="2">บ้านจัดสรร</ion-select-option>
-      </ion-select>
-    </ion-item>
+  <form [formGroup]="fg">
+    <ion-list lines="none">
+      <ion-item lines="inset">
+        <ion-label position="stacked">Apply with plan</ion-label>
+        <ion-select formControlName="plan" value="1" interface="popover" placeholder="โปรดเลือก Plan"
+          class="ion-margin-top">
+          <ion-select-option value="1">ขั้นต่ำ</ion-select-option>
+          <ion-select-option value="2">บ้านจัดสรร</ion-select-option>
+        </ion-select>
+      </ion-item>
 
-    <ion-item lines="none">
-      <ion-searchbar mode="ios" animated placeholder="ค้นหาจากบ้านเลขที่"></ion-searchbar>
-    </ion-item>
-  </ion-list>
+      <ion-item lines="none">
+        <ion-searchbar mode="ios" animated placeholder="ค้นหาจากบ้านเลขที่"></ion-searchbar>
+      </ion-item>
+    </ion-list>
 
-  <ion-list>
-    <ion-item mode="ios">
-      <ion-checkbox class="checkbox-checked" color="primary" slot="start"></ion-checkbox>
-      <ion-label>
-        <h2>พิมานคอนโดปาร์ค</h2>
-        <h3>
-          <ion-text color="medium">989/27 ตำบล ศิลา อำเภอเมืองขอนแก่น 40000</ion-text>
-        </h3>
-      </ion-label>
-    </ion-item>
-    <ion-item mode="ios">
-      <ion-checkbox class="checkbox-checked" color="primary" slot="start"></ion-checkbox>
-      <ion-label>
-        <h2>แสนสิริ</h2>
-        <h3>
-          <ion-text color="medium">116/13 ตำบล ขามใหญ่ อำเภอเมืองอุบลราชธานี 34000</ion-text>
-        </h3>
-      </ion-label>
-    </ion-item>
-    <ion-item mode="ios">
-      <ion-checkbox class="checkbox-checked" color="primary" slot="start"></ion-checkbox>
-      <ion-label>
-        <h2>โกลเด้นนีโอ</h2>
-        <h3>
-          <ion-text color="medium">112/73 ตำบลในเมือง อำเภอเมืองขอนแก่น 40000</ion-text>
-        </h3>
-      </ion-label>
-    </ion-item>
-    <ion-item mode="ios">
-      <ion-checkbox class="checkbox-checked" color="primary" slot="start"></ion-checkbox>
-      <ion-label>
-        <h2>อภิทาวน์</h2>
-        <h3>
-          <ion-text color="medium">7/40 ตำบลศิลา อำเภอเมืองขอนแก่น 40000</ion-text>
-        </h3>
-      </ion-label>
-    </ion-item>
-    <ion-item mode="ios">
-      <ion-checkbox color="primary" slot="start"></ion-checkbox>
-      <ion-label>
-        <h2>พฤกษาแอร์พอร์ต</h2>
-        <h3>
-          <ion-text color="medium">1/17 ตำบลศิลา อำเภอเมืองขอนแก่น 40000</ion-text>
-        </h3>
-      </ion-label>
-    </ion-item>
-    <ion-item mode="ios">
-      <ion-checkbox color="primary" slot="start"></ion-checkbox>
-      <ion-label>
-        <h2>พฤกษาแอร์พอร์ต</h2>
-        <h3>
-          <ion-text color="medium">2/17 ตำบลศิลา อำเภอเมืองขอนแก่น 40000</ion-text>
-        </h3>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+    <ion-list>
+      <ion-item mode="ios" *ngFor="let item of fg.value.data; let i = index">
+        <ion-checkbox color="primary" slot="start" checked="{{ item.plan == fg.value.plan }}"
+          (ionChange)="onItemChange(i, $event)"></ion-checkbox>
+        <ion-label>
+          <h2>{{ item.title }}</h2>
+          <h3>
+            <ion-text color="medium">{{ item.address }}</ion-text>
+          </h3>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </form>
 
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <ion-button (click)="dismiss()" expand="block" fill="clear" shape="round" slot="end" color="medium">
+    <ion-button (click)="onDismiss()" expand="block" fill="clear" shape="round" slot="end" color="medium">
       ยกเลิก
     </ion-button>
-    <ion-button (click)="dismiss()" expand="block" fill="clear" shape="round" slot="end">
+    <ion-button (click)="onSubmit()" expand="block" fill="clear" shape="round" slot="end">
       ตกลง
     </ion-button>
   </ion-toolbar>

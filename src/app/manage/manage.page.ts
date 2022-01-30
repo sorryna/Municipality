@@ -10,6 +10,16 @@ import { ApplyPlanDlgPage } from '../apply-plan-dlg/apply-plan-dlg.page';
 })
 export class ManagePage implements OnInit {
 
+  public data = [
+    { "title": "พิมานคอนโดปาร์ค", "address": "989/27 ตำบล ศิลา อำเภอเมืองขอนแก่น 40000", "plan": 1 },
+    { "title": "แสนสิริ", "address": "116/13 ตำบล ขามใหญ่ อำเภอเมืองอุบลราชธานี 34000", "plan": 1 },
+    { "title": "โกลเด้นนีโอ", "address": "112/73 ตำบลในเมือง อำเภอเมืองขอนแก่น 40000", "plan": 1 },
+    { "title": "อภิทาวน์", "address": "7/40 ตำบลศิลา อำเภอเมืองขอนแก่น 40000", "plan": 1 },
+    { "title": "พฤกษาแอร์พอร์ต", "address": "1/17 ตำบลศิลา อำเภอเมืองขอนแก่น 40000", "plan": 2 },
+    { "title": "พฤกษาแอร์พอร์ต", "address": "2/17 ตำบลศิลา อำเภอเมืองขอนแก่น 40000", "plan": 2 },
+  ];
+
+
   constructor(private dlg: ModalController) { }
 
   ngOnInit() {
@@ -26,9 +36,15 @@ export class ManagePage implements OnInit {
   async onSelectApplyPlan() {
     const modal = await this.dlg.create({
       component: ApplyPlanDlgPage,
-      cssClass: 'dialog-modal-dlg-note',
+      componentProps: { "data": this.data }
     });
-    return await modal.present();
+    await modal.present();
+
+    modal.onDidDismiss().then(it => {
+      if (it && it.data) {
+        this.data = it.data.data;
+      }
+    });
   }
 
 }
