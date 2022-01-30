@@ -22,7 +22,7 @@ export class SetupPlanPage implements OnInit {
   async openAddPayment() {
     const modal = await this.dlg.create({
       component: SetupPlanConfigPage,
-      componentProps: { "id": this.data.length + 1 }
+      componentProps: { "data": { "id": this.data.length + 1 } }
     });
     await modal.present();
 
@@ -37,14 +37,7 @@ export class SetupPlanPage implements OnInit {
   async openEditPayment(item: any) {
     const modal = await this.dlg.create({
       component: SetupPlanConfigPage,
-      componentProps: {
-        "id": item.id,
-        "displayName": item.displayName,
-        "payPerMonth": item.payPerMonth,
-        "payPerYear": item.payPerYear,
-        "feePerMonth": item.feePerMonth,
-        "feePerYear": item.feePerYear,
-      }
+      componentProps: { "data": item }
     });
     await modal.present();
 

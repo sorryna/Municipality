@@ -9,12 +9,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class SetupPlanConfigPage implements OnInit {
 
-  @Input() id: string;
-  @Input() displayName: string;
-  @Input() payPerMonth: string;
-  @Input() payPerYear: string;
-  @Input() feePerMonth: string;
-  @Input() feePerYear: string;
+  @Input() data: any;
 
   public fg: FormGroup;
   public isFirstTime: boolean = true;
@@ -28,26 +23,22 @@ export class SetupPlanConfigPage implements OnInit {
       'feePerMonth': [9, Validators.required],
       'feePerYear': [108, Validators.required],
     });
-
-
   }
 
   ngOnInit() {
-    console.log(this.id);
-
-    this.fg.get('id').setValue(this.id);
+    this.fg.get('id').setValue(this.data.id);
     let isDataValid =
-      this.displayName &&
-      this.payPerMonth &&
-      this.payPerYear &&
-      this.feePerMonth &&
-      this.feePerYear;
+      this.data.displayName &&
+      this.data.payPerMonth &&
+      this.data.payPerYear &&
+      this.data.feePerMonth &&
+      this.data.feePerYear;
     if (isDataValid) {
-      this.fg.get('displayName').setValue(this.displayName);
-      this.fg.get('payPerMonth').setValue(this.payPerMonth);
-      this.fg.get('payPerYear').setValue(this.payPerYear);
-      this.fg.get('feePerMonth').setValue(this.feePerMonth);
-      this.fg.get('feePerYear').setValue(this.feePerYear);
+      this.fg.get('displayName').setValue(this.data.displayName);
+      this.fg.get('payPerMonth').setValue(this.data.payPerMonth);
+      this.fg.get('payPerYear').setValue(this.data.payPerYear);
+      this.fg.get('feePerMonth').setValue(this.data.feePerMonth);
+      this.fg.get('feePerYear').setValue(this.data.feePerYear);
     }
   }
 
@@ -64,7 +55,7 @@ export class SetupPlanConfigPage implements OnInit {
     if (this.isFirstTime) {
       this.isFirstTime = false;
     }
-    
+
     if (this.fg.valid) {
       this.dlg.dismiss(this.fg.value);
     }
