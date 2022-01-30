@@ -12,6 +12,7 @@ export class ApplyPlanDlgPage implements OnInit {
   @Input() data: any;
 
   public fg: FormGroup;
+  public displayData: any[] = [];
 
   constructor(private dlg: ModalController, private fb: FormBuilder) {
     this.fg = this.fb.group({
@@ -22,30 +23,33 @@ export class ApplyPlanDlgPage implements OnInit {
 
   ngOnInit() {
     this.fg.get('data').setValue(this.data);
+    this.fg.get('data').value.forEach((element: any) => {
+      this.displayData.push({ "title": element.title, "address": element.address, "plan": element.plan });
+    });
   }
 
   onItemChange(index, event) {
-
-
     let plan = this.fg.get('plan').value;
     let alterPlan = plan == "1" ? "2" : "1";
 
-    let list = this.fg.get('data').value;
     if (event.target.ariaChecked == 'false') {
       // Check 
-      list[index].plan = plan;
+      this.displayData[index].plan = plan;
     }
     else {
       // Uncheck
-      list[index].plan = alterPlan;
+      this.displayData[index].plan = alterPlan;
     }
-    this.fg.get('data').setValue(list);
+  }
 
+  isDisableCheck(index) {
+    return this.fg.get('data').value[index].plan == this.fg.get('plan').value;
   }
 
   onDismiss() { this.dlg.dismiss(); }
   onSubmit() {
     if (this.fg.valid) {
+      this.fg.get('data').setValue(this.displayData);
       this.dlg.dismiss(this.fg.value);
     }
   }

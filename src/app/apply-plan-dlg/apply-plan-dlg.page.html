@@ -17,8 +17,8 @@
     </ion-list>
 
     <ion-list>
-      <ion-item mode="ios" *ngFor="let item of fg.value.data; let i = index">
-        <ion-checkbox color="primary" slot="start" checked="{{ item.plan == fg.value.plan }}"
+      <ion-item mode="ios" *ngFor="let item of displayData; let i = index">
+        <ion-checkbox color="primary" slot="start" checked="{{ item.plan == fg.value.plan }}" disabled="{{ isDisableCheck(i) }}"
           (ionChange)="onItemChange(i, $event)"></ion-checkbox>
         <ion-label>
           <h2>{{ item.title }}</h2>
