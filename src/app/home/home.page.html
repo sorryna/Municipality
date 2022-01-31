@@ -10,7 +10,7 @@
   <ion-button routerLink="/manage" shape="round">Manage</ion-button>
   <br>
 
-  <ion-button id="open-modal">เลือก วันที่</ion-button>
+  <!-- <ion-button id="open-modal">เลือก วันที่</ion-button>
   <ion-modal trigger="open-modal">
     <ng-template>
       <ion-content>
@@ -19,40 +19,23 @@
     </ng-template>
   </ion-modal>
 
-  <ion-label>{{ date | date:'d/M/yyy' }}</ion-label>
+  <ion-label>{{ date | date:'d/M/yyy' }}</ion-label> -->
 
-
-  <div class="ion-text-center">
-    <img src="../../assets/5e9d4a73620ef-300x300.png" alt="">
-    <!-- <img src="../../assets/1200px-Pushkin_population_history.svg.png" alt=""> -->
+  <div class="ion-text-center" routerLink="/payment-bargraph">
+    <img src="/assets/imgs/pie-chart.png">
   </div>
 
-  <ion-list class="ion-text-center">
-    <ion-row [routerLink]="['/paid-detail']">
-      <ion-col size="2">
-      </ion-col>
-      <ion-col size="4">
-        <ion-label>ชำระแล้ว</ion-label>
-      </ion-col>
-      <ion-col size="4">
-        <ion-label>50 %
-          <ion-icon name="arrow-forward"></ion-icon>
-        </ion-label>
-      </ion-col>
-    </ion-row>
+  <ion-list class="ion-text-center ion-padding">
 
-    <ion-row [routerLink]="['/overdue-detail']">
-      <ion-col size="2">
-      </ion-col>
-      <ion-col size="4">
-        <ion-label>ค้างชำระ</ion-label>
-      </ion-col>
-      <ion-col size="4">
-        <ion-label>50 %
-          <ion-icon name="arrow-forward"></ion-icon>
-        </ion-label>
-      </ion-col>
-    </ion-row>
+    <ion-item mode="ios" button routerLink="/paid-detail">
+      <ion-label>ชำระแล้ว</ion-label>
+      <ion-label>32 %</ion-label>
+    </ion-item>
+    <ion-item mode="ios" button routerLink="/overdue-detail">
+      <ion-label>ค้างชำระ</ion-label>
+      <ion-label>68 %</ion-label>
+    </ion-item>
+
   </ion-list>
 
 

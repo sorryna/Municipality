@@ -57,6 +57,10 @@ const routes: Routes = [
   {
     path: 'setup-plan-config',
     loadChildren: () => import('./setup-plan-config/setup-plan-config.module').then( m => m.SetupPlanConfigPageModule)
+  },
+  {
+    path: 'payment-bargraph',
+    loadChildren: () => import('./payment-bargraph/payment-bargraph.module').then( m => m.PaymentBargraphPageModule)
   }
 
 ];
