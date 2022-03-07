@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { PaymentBargraphPageRoutingModule } from './payment-bargraph-routing.module';
 
 import { PaymentBargraphPage } from './payment-bargraph.page';
+import { HeaderComponent } from '../components/header/header.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import { PaymentBargraphPage } from './payment-bargraph.page';
     IonicModule,
     PaymentBargraphPageRoutingModule
   ],
-  declarations: [PaymentBargraphPage]
+  declarations: [
+    PaymentBargraphPage,
+    HeaderComponent
+  ]
 })
 export class PaymentBargraphPageModule {}
