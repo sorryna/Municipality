@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SetupPlanPageRoutingModule } from './setup-plan-routing.module';
 
 import { SetupPlanPage } from './setup-plan.page';
+import { HeaderComponent } from '../components/header/header.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import { SetupPlanPage } from './setup-plan.page';
     IonicModule,
     SetupPlanPageRoutingModule
   ],
-  declarations: [SetupPlanPage]
+  declarations: [
+    SetupPlanPage,
+    HeaderComponent
+  ]
 })
 export class SetupPlanPageModule {}

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ManagePageRoutingModule } from './manage-routing.module';
 
 import { ManagePage } from './manage.page';
+import { HeaderComponent } from '../components/header/header.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import { ManagePage } from './manage.page';
     IonicModule,
     ManagePageRoutingModule
   ],
-  declarations: [ManagePage]
+  declarations: [
+    ManagePage,
+    HeaderComponent
+  ]
 })
 export class ManagePageModule {}

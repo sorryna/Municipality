@@ -1,43 +1,52 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>เพิ่ม</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding" mode="ios">
 
-<ion-content>
-  <ion-item>
-    <ion-label>บ้านเลขที่</ion-label>
-    <ion-input type="text" placeholder="ใส่บ้านเลขที่"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>หมู่ที่</ion-label>
-    <ion-input type="text" placeholder="ใส่หมู่ที่"></ion-input>
-  </ion-item>
+  <ion-list>
+    
+    <ion-item>
+      <ion-label position="stacked">ชื่อที่อยู่</ion-label>
+      <ion-input type="text" placeholder="ชื่อที่อยู่ที่ต้องการเพิ่ม" clearInput></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>ถนน</ion-label>
-    <ion-input type="text" placeholder="ใส่ถนน"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>ตำบล</ion-label>
-    <ion-input type="text" placeholder="ใส่ตำบล"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>อำเภอ</ion-label>
-    <ion-input type="text" placeholder="ใส่อำเภอ"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>จังหวัด</ion-label>
-    <ion-input type="text" placeholder="ใส่จังหวัด"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="stacked">บ้านเลขที่</ion-label>
+      <ion-input type="text" placeholder="บ้านเลขที่ที่ต้องการเพิ่ม" clearInput></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label  position="stacked">หมู่ที่</ion-label>
+      <ion-input type="text" placeholder="หมู่ที่ต้องการเพิ่ม" clearInput></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label  position="stacked">ถนน</ion-label>
+      <ion-input type="text" placeholder="ถนนที่ต้องการเพิ่ม" clearInput></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label  position="stacked">ตำบล</ion-label>
+      <ion-input type="text" placeholder="ตำบลที่ต้องการเพิ่ม" clearInput></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label  position="stacked">อำเภอ</ion-label>
+      <ion-input type="text" placeholder="อำเภอที่ต้องการเพิ่ม" clearInput></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label  position="stacked">จังหวัด</ion-label>
+      <ion-input type="text" placeholder="จังหวัดที่ต้องการเพิ่ม" clearInput></ion-input>
+    </ion-item>
+
+  </ion-list>
 
 </ion-content>
+
 <ion-footer>
   <ion-toolbar>
-    <ion-button (click)="dismiss()" expand="block" fill="clear" shape="round" slot="end">
+    <ion-button (click)="dismiss()" expand="block" fill="clear" shape="round" slot="end" color="medium">
       ยกเลิก
     </ion-button>
-    <ion-button (click)="dismiss()" expand="block" fill="clear" shape="round" slot="end">
+    <ion-button (click)="dismiss()" expand="block" fill="clear" shape="round" slot="end" color="danger">
       ตกลง
     </ion-button>
   </ion-toolbar>

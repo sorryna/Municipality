@@ -1,4 +1,4 @@
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" mode="ios">
 
   <form [formGroup]="fg">
     <ion-list>
@@ -8,7 +8,7 @@
             <h3>กรุณาระบุชื่ออัตรา</h3>
           </ion-text>
         </ion-label>
-        <ion-input class="ion-margin-top" formControlName="displayName"></ion-input>
+        <ion-input class="ion-margin-top" formControlName="displayName" clearInput ></ion-input>
       </ion-item>
       <ion-item lines="none">
         <ion-label>กำหนดอัตราชำระค่าขยะ</ion-label>
@@ -39,7 +39,7 @@
     <ion-button (click)="onDismiss()" expand="block" fill="clear" shape="round" slot="end" color="medium">
       ยกเลิก
     </ion-button>
-    <ion-button (click)="onSubmit()" expand="block" fill="clear" shape="round" slot="end">
+    <ion-button (click)="onSubmit()" expand="block" fill="clear" shape="round" slot="end" color="danger">
       ตกลง
     </ion-button>
   </ion-toolbar>

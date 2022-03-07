@@ -1,9 +1,9 @@
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" mode="ios">
 
   <form [formGroup]="fg">
     <ion-list lines="none">
       <ion-item lines="inset">
-        <ion-label position="stacked">Apply with plan</ion-label>
+        <ion-label position="stacked">อัตราการชำระเงิน</ion-label>
         <ion-select formControlName="plan" value="1" interface="popover" placeholder="โปรดเลือก Plan"
           class="ion-margin-top">
           <ion-select-option value="1">ขั้นต่ำ</ion-select-option>
@@ -18,7 +18,7 @@
 
     <ion-list>
       <ion-item mode="ios" *ngFor="let item of displayData; let i = index">
-        <ion-checkbox color="primary" slot="start" checked="{{ item.plan == fg.value.plan }}" disabled="{{ isDisableCheck(i) }}"
+        <ion-checkbox color="danger" slot="start" checked="{{ item.plan == fg.value.plan }}" disabled="{{ isDisableCheck(i) }}"
           (ionChange)="onItemChange(i, $event)"></ion-checkbox>
         <ion-label>
           <h2>{{ item.title }}</h2>
@@ -36,7 +36,7 @@
     <ion-button (click)="onDismiss()" expand="block" fill="clear" shape="round" slot="end" color="medium">
       ยกเลิก
     </ion-button>
-    <ion-button (click)="onSubmit()" expand="block" fill="clear" shape="round" slot="end">
+    <ion-button (click)="onSubmit()" expand="block" fill="clear" shape="round" slot="end" color="danger">
       ตกลง
     </ion-button>
   </ion-toolbar>
