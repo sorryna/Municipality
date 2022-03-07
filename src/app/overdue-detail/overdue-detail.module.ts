@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { OverdueDetailPageRoutingModule } from './overdue-detail-routing.module';
 
 import { OverdueDetailPage } from './overdue-detail.page';
+import { HeaderComponent } from '../components/header/header.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import { OverdueDetailPage } from './overdue-detail.page';
     IonicModule,
     OverdueDetailPageRoutingModule
   ],
-  declarations: [OverdueDetailPage]
+  declarations: [
+    OverdueDetailPage,
+    HeaderComponent
+  ]
 })
 export class OverdueDetailPageModule {}

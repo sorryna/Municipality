@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { PaidDetailPageRoutingModule } from './paid-detail-routing.module';
 
 import { PaidDetailPage } from './paid-detail.page';
+import { HeaderComponent } from '../components/header/header.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import { PaidDetailPage } from './paid-detail.page';
     IonicModule,
     PaidDetailPageRoutingModule
   ],
-  declarations: [PaidDetailPage]
+  declarations: [
+    PaidDetailPage,
+    HeaderComponent
+  ]
 })
 export class PaidDetailPageModule {}
