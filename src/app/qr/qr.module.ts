@@ -7,18 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { QRPageRoutingModule } from './qr-routing.module';
 
 import { QRPage } from './qr.page';
-import { HeaderComponent } from '../components/header/header.component';
+import { HeaderModule } from '../header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    QRPageRoutingModule
+    QRPageRoutingModule,
+    HeaderModule
   ],
-  declarations: [
-    QRPage,
-    HeaderComponent
-  ]
+  declarations: [QRPage]
 })
 export class QRPageModule {}

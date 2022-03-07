@@ -7,18 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { PaymentBargraphPageRoutingModule } from './payment-bargraph-routing.module';
 
 import { PaymentBargraphPage } from './payment-bargraph.page';
-import { HeaderComponent } from '../components/header/header.component';
+import { HeaderModule } from '../header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PaymentBargraphPageRoutingModule
+    PaymentBargraphPageRoutingModule,
+    HeaderModule
   ],
-  declarations: [
-    PaymentBargraphPage,
-    HeaderComponent
-  ]
+  declarations: [PaymentBargraphPage]
 })
 export class PaymentBargraphPageModule {}
