@@ -14,12 +14,15 @@
         <ion-label class="ion-margin">เพิ่ม</ion-label>
       </ion-button>
 
-      <ion-button class="no-shadow ion-no-margin ion-margin-start" mode="md" color="danger" shape="round" size="default"
-        routerLink="/setup-plan">
-        <ion-icon slot="start" name="add"></ion-icon>
-        <ion-label class="ion-margin">Upload</ion-label>
-        <input type="file" name="photo" />
-      </ion-button>
+      <div class="fileUpload">
+        <ion-button class="no-shadow ion-no-margin ion-margin-start" mode="md" color="danger" shape="round"
+          size="default">
+          <ion-icon slot="start" name="add"></ion-icon>
+          <ion-label class="ion-margin">Upload</ion-label>
+        </ion-button>
+        <input type="file" class="upload" />
+      </div>
+
     </ion-item>
   </ion-list>
 
@@ -68,9 +71,9 @@
       </ion-label>
     </ion-item>
   </ion-list>
-  
+
   <ion-item class="ion-text-center ion-no-margin" lines="none">
     <ion-label color="primary">See More</ion-label>
   </ion-item>
-  
+
 </ion-content>
