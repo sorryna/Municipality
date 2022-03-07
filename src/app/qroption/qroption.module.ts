@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { QROptionPageRoutingModule } from './qroption-routing.module';
 
 import { QROptionPage } from './qroption.page';
+import { HeaderComponent } from '../components/header/header.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import { QROptionPage } from './qroption.page';
     IonicModule,
     QROptionPageRoutingModule
   ],
-  declarations: [QROptionPage]
+  declarations: [
+    QROptionPage,
+    HeaderComponent
+  ]
 })
-export class QROptionPageModule {}
+export class QROptionPageModule { }

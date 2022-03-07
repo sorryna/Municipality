@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public appPages = [
     { title: 'รายงาน', url: '/home', icon: 'cellular' },
-    { title: 'สร้างคิวอาร์โค้ดจ่ายเงิน', url: '/qr', icon: 'qr-code' },
+    { title: 'สร้างคิวอาร์โค้ดชำระเงิน', url: '/qr', icon: 'qr-code' },
     { title: 'จัดการที่อยู่', url: '/manage', icon: 'cog' },
     { title: 'ออกจากระบบ', url: '/login', icon: 'log-out' },
   ];

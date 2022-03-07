@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { QRGeneratePageRoutingModule } from './qrgenerate-routing.module';
 
 import { QRGeneratePage } from './qrgenerate.page';
+import { HeaderComponent } from '../components/header/header.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import { QRGeneratePage } from './qrgenerate.page';
     IonicModule,
     QRGeneratePageRoutingModule
   ],
-  declarations: [QRGeneratePage]
+  declarations: [
+    QRGeneratePage,
+    HeaderComponent
+  ]
 })
 export class QRGeneratePageModule {}
