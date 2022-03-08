@@ -1,56 +1,168 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>ค้างชำระ</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content mode="ios">
 
-<ion-content>
+  <app-header></app-header>
 
-  <ion-button id="open-modal">เลือก วันที่</ion-button>
-  <ion-modal trigger="open-modal">
-    <ng-template>
-      <ion-content>
-        <ion-datetime></ion-datetime>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
+  <ion-breadcrumbs class="ion-padding">
+    <ion-breadcrumb routerLink="/home">
+      รายงาน
+    </ion-breadcrumb>
+    <ion-breadcrumb routerLink="/overdue-detail">
+      ค้างชำระ
+    </ion-breadcrumb>
+  </ion-breadcrumbs>
 
-  <ion-label>{{ date | date:'d/M/yyy' }}</ion-label>
-  <ion-item>
-    <ion-label>ค้างชำระ 3 รายการ</ion-label>
+  <ion-list class="ion-padding">
+    <ion-list-header>
+      <ion-label>ค้างชำระ (5 รายการ)</ion-label>
+    </ion-list-header>
+    <ion-searchbar animated placeholder="ค้นหาจากบ้านเลขที่"></ion-searchbar>
+
+    <ion-item lines="none">
+      <ion-label><b>บ้านเลขที่</b></ion-label>
+      <ion-label class="ion-text-end"><b>ค้างชำระ</b></ion-label>
+      <ion-label class="ion-text-end"><b>วันที่ชำระล่าสุด</b></ion-label>
+      <ion-label class="ion-text-end"><b>วันที่ชำระครั้งถัดไป</b></ion-label>
+    </ion-item>
+
+    <ion-item button routerLink="/qroption">
+      <ion-label>
+        บ้านทาวเฮาท์
+        <ion-text color="medium">
+          <p>90/55 หมู่ 27 ตำบล กุดกว้าง อำเภอเมืองขอนแก่น 40000</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        7 เดือน
+        <ion-text color="medium">
+          <p>(350 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        14 มิถุนายน 2564
+        <ion-text color="medium">
+          <p>(50 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        1 สิงหาคม 2564
+        <ion-text color="medium">
+          <p>(50 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button routerLink="/qroption">
+      <ion-label>
+        บ้านเดี่ยว
+        <ion-text color="medium">
+          <p>123/6 หมู่ 27 ตำบล กุดกว้าง อำเภอเมืองขอนแก่น 40000</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        9 เดือน
+        <ion-text color="medium">
+          <p>(450 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        8 สิงหาคม 2564
+        <ion-text color="medium">
+          <p>(50 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        1 ตุลาคม 2564
+        <ion-text color="medium">
+          <p>(50 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button routerLink="/qroption">
+      <ion-label>
+        บ้านเดี่ยว
+        <ion-text color="medium">
+          <p>44/12 หมู่ 6 ตำบล น้ำพอง อำเภอเมืองขอนแก่น 40000</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        5 เดือน
+        <ion-text color="medium">
+          <p>(250 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        24 เมษายน 2564
+        <ion-text color="medium">
+          <p>(50 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        1 มิถุนายน 2564
+        <ion-text color="medium">
+          <p>(50 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    
+    <ion-item button routerLink="/qroption">
+      <ion-label>
+        บ้านเดี่ยว
+        <ion-text color="medium">
+          <p>89/20 หมู่ 10 ตำบล บ้านเป็ด อำเภอเมืองขอนแก่น 40000</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        5 เดือน
+        <ion-text color="medium">
+          <p>(250 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        31 มีนาคม 2564
+        <ion-text color="medium">
+          <p>(50 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        1 มิถุนายน 2564
+        <ion-text color="medium">
+          <p>(50 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    
+    <ion-item button routerLink="/qroption">
+      <ion-label>
+        บ้านเดี่ยว
+        <ion-text color="medium">
+          <p>56/9 หมู่ 18 ตำบล ในเมือง อำเภอเมืองขอนแก่น 40000</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        7 เดือน
+        <ion-text color="medium">
+          <p>(350 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        2 พฤษภาคม 2564
+        <ion-text color="medium">
+          <p>(50 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        1 สิงหาคม 2564
+        <ion-text color="medium">
+          <p>(50 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-item class="ion-text-center ion-no-margin" lines="none">
+    <ion-label color="primary">See More</ion-label>
   </ion-item>
-  <ion-card-content class="table">
-    <table>
-      <tr>
-        <th>รายการ</th>
-        <th>จำนวนเดือน</th>
-        <th>เป็นเงิน</th>
-        <th></th>
-      </tr>
-      <tr [routerLink]="['/qroption']">
-        <td>7/5</td>
-        <td>120</td>
-        <td>549 THB</td>
-        <td><ion-icon name="arrow-forward"></ion-icon>
-      </tr>
-      <tr [routerLink]="['/qroption']">
-        <td>12/6</td>
-        <td>12</td>
-        <td>147 THB</td>
-        <td><ion-icon name="arrow-forward"></ion-icon>
-      </tr>
-      <tr [routerLink]="['/qroption']">
-        <td>7/2</td>
-        <td>1</td>
-        <td>49 THB</td>
-        <td><ion-icon name="arrow-forward"></ion-icon>
-      </tr>
-    </table>
-  </ion-card-content>
 
-  <div>
-    <ion-button expand="block" fill="clear" shape="round">
-      seemore
-    </ion-button>
-  </div>
 </ion-content>

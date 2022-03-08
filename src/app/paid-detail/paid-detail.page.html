@@ -1,52 +1,111 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>ชำระแล้ว</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content mode="ios">
 
-<ion-content>
+  <app-header></app-header>
 
-  <ion-button id="open-modal">เลือก วันที่</ion-button>
-  <ion-modal trigger="open-modal">
-    <ng-template>
-      <ion-content>
-        <ion-datetime></ion-datetime>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
+  <ion-breadcrumbs class="ion-padding">
+    <ion-breadcrumb routerLink="/home">
+      รายงาน
+    </ion-breadcrumb>
+    <ion-breadcrumb routerLink="/paid-detail">
+      ชำระแล้ว
+    </ion-breadcrumb>
+  </ion-breadcrumbs>
 
-  <ion-label>{{ date | date:'d/M/yyy' }}</ion-label>
-  <ion-item>
-    <ion-label>ชำระแล้ว 3 รายการ</ion-label>
+  <ion-list class="ion-padding">
+    <ion-list-header>
+      <ion-label>ชำระแล้ว (3 รายการ)</ion-label>
+    </ion-list-header>
+    <ion-searchbar animated placeholder="ค้นหาจากบ้านเลขที่"></ion-searchbar>
+
+    <ion-item lines="none">
+      <ion-label><b>บ้านเลขที่</b></ion-label>
+      <ion-label class="ion-text-end"><b>ชำระล่วงหน้า</b></ion-label>
+      <ion-label class="ion-text-end"><b>วันที่ชำระล่าสุด</b></ion-label>
+      <ion-label class="ion-text-end"><b>วันที่ชำระครั้งถัดไป</b></ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        พิมานคอนโดปาร์ค
+        <ion-text color="medium">
+          <p>989/27 ตำบล ศิลา อำเภอเมืองขอนแก่น 40000</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        -
+      </ion-label>
+      <ion-label class="ion-text-end">
+        4 มีนาคม 2564
+        <ion-text color="medium">
+          <p>(50 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        1 พฤษภาคม 2564
+        <ion-text color="medium">
+          <p>(50 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        พิมานคอนโดปาร์ค
+        <ion-text color="medium">
+          <p>12/6 หมู่ 27 ตำบล ศิลา อำเภอเมืองขอนแก่น 40000</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        4 เดือน
+        <ion-text color="medium">
+          <p>(200 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        19 มีนาคม 2564
+        <ion-text color="medium">
+          <p>(50 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        1 พฤษภาคม 2564
+        <ion-text color="medium">
+          <p>(50 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        บ้านเดี่ยว
+        <ion-text color="medium">
+          <p>919/2 หมู่ 27 ตำบล ในเมือง อำเภอเมืองขอนแก่น 40000</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        6 เดือน
+        <ion-text color="medium">
+          <p>(300 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        14 มีนาคม 2564
+        <ion-text color="medium">
+          <p>(50 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end">
+        1 กรกฎาคม 2564
+        <ion-text color="medium">
+          <p>(50 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-item class="ion-text-center ion-no-margin" lines="none">
+    <ion-label color="primary">See More</ion-label>
   </ion-item>
-  <ion-card-content class="table">
-    <table>
-      <tr>
-        <th>รายการ</th>
-        <th>วันที่</th>
-        <th>จำนวน</th>
-      </tr>
-      <tr>
-        <td>7/1</td>
-        <td>{{ date | date:'d/M/yyy' }}</td>
-        <td>49 THB</td>
-      </tr>
-      <tr>
-        <td>919/3</td>
-        <td>{{ date | date:'d/M/yyy' }}</td>
-        <td>549 THB</td>
-      </tr>
-      <tr>
-        <td>989</td>
-        <td>{{ date | date:'d/M/yyy' }}</td>
-        <td>49 THB</td>
-      </tr>
-    </table>
-  </ion-card-content>
 
-  <div>
-    <ion-button expand="block" fill="clear" shape="round">
-      seemore
-    </ion-button>
-  </div>
 </ion-content>

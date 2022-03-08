@@ -6,13 +6,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Report', url: '/home', icon: 'mail' },
-    { title: 'QR', url: '/qr', icon: 'paper-plane' },
-    { title: 'Manage', url: '/manage', icon: 'heart' },
-    // { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
-    // { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
-    // { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
+    { title: 'รายงาน', url: '/home', icon: 'cellular' },
+    { title: 'สร้างคิวอาร์โค้ดชำระเงิน', url: '/qr', icon: 'qr-code' },
+    { title: 'จัดการที่อยู่', url: '/manage', icon: 'settings' },
+    { title: 'ออกจากระบบ', url: '/login', icon: 'log-out' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor() {}
 }

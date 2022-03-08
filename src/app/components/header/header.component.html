@@ -1,0 +1,30 @@
+<ion-accordion-group class="ion-hide-lg-up">
+  <ion-accordion>
+    <ion-item slot="header" color="danger">
+      <ion-avatar slot="start">
+        <img src="assets/avatar.svg" alt="profile-image" />
+      </ion-avatar>
+      <ion-label>Admin หมูมะนาว</ion-label>
+      <ion-icon class="ion-accordion-toggle-icon" slot="end" name="menu"></ion-icon>
+    </ion-item>
+
+    <ion-list slot="content" lines="full" (click)="closeAccordion()">
+      <ion-item button routerLink="/home">
+        <ion-icon slot="start" name="cellular" color="danger"></ion-icon>
+        รายงาน
+      </ion-item>
+      <ion-item button routerLink="/qr">
+        <ion-icon slot="start" name="qr-code" color="danger"></ion-icon>
+        สร้างคิวอาร์โค้ดชำระเงิน
+      </ion-item>
+      <ion-item button routerLink="/manage">
+        <ion-icon slot="start" name="settings" color="danger"></ion-icon>
+        จัดการที่อยู่
+      </ion-item>
+      <ion-item button routerLink="/login">
+        <ion-icon slot="start" name="log-out" color="danger"></ion-icon>
+        ออกจากระบบ
+      </ion-item>
+    </ion-list>
+  </ion-accordion>
+</ion-accordion-group>

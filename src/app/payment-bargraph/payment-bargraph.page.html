@@ -1,6 +1,17 @@
-<ion-content>
-  
-  <div class="ion-text-center" routerLink="/payment-bargraph">
+<ion-content mode="ios">
+
+  <app-header></app-header>
+
+  <ion-breadcrumbs class="ion-padding">
+    <ion-breadcrumb routerLink="/home">
+      รายงาน
+    </ion-breadcrumb>
+    <ion-breadcrumb routerLink="/payment-bargraph">
+      ภาพรวมทั้งหมด
+    </ion-breadcrumb>
+  </ion-breadcrumbs>
+
+  <div class="ion-padding ion-text-center" routerLink="/payment-bargraph">
     <img src="/assets/imgs/bar-graph.png">
   </div>
 

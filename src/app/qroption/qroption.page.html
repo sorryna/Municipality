@@ -1,36 +1,113 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>เลือก Option</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content mode="ios">
 
-<ion-content>
-  <ion-card-content class="table">
-    <table>
-      <tr>
-        <th>7/5</th>
-        <th></th>
-        <th></th>
-      </tr>
-      <tr [routerLink]="['/qrgenerate']">
-        <td>รายเดือน</td>
-        <th>49 บาท</th>
+  <app-header></app-header>
 
-        <td><ion-icon name="arrow-forward"></ion-icon>
-        </td>
-      </tr>
-      <tr [routerLink]="['/qrgenerate']">
-        <td>รายปี</td>
-        <th>549 บาท</th>
-        <td><ion-icon name="arrow-forward"></ion-icon>
-        </td>
-      </tr>
-      <tr [routerLink]="['/qrgenerate']">
-        <td>ทั้งหมด</td>
-        <th>49 บาท</th>
-        <td><ion-icon name="arrow-forward"></ion-icon>
-        </td>
-      </tr>
-    </table>
-  </ion-card-content>
+  <ion-breadcrumbs class="ion-padding">
+    <ion-breadcrumb routerLink="/qr">
+      สร้างคิวอาร์โค้ดชำระเงิน
+    </ion-breadcrumb>
+    <ion-breadcrumb routerLink="/qroption">
+      ช่องทางการชำระเงิน
+    </ion-breadcrumb>
+  </ion-breadcrumbs>
+
+  <ion-list class="ion-padding">
+    <ion-list-header>
+      <ion-label>ข้อมูลที่อยู่</ion-label>
+    </ion-list-header>
+
+    <ion-card color="tertiary">
+      <ion-card-content class="ion-no-padding">
+        <ion-item color="tertiary" lines="full">
+          <ion-label>
+            พิมานคอนโดปาร์ค
+            <ion-text color="medium">
+              <p>90/55 หมู่ 27 ตำบล กุดกว้าง อำเภอเมืองขอนแก่น 40000</p>
+            </ion-text>
+          </ion-label>
+        </ion-item>
+
+        <ion-item color="tertiary" lines="none">
+          <ion-label>
+            ชำระล่วงหน้า
+            <ion-text color="medium">
+              <p>-</p>
+            </ion-text>
+          </ion-label>
+
+          <ion-label>
+            ค้างชำระ
+            <ion-text color="medium">
+              <p>7 เดือน (350 <small>THB</small>)</p>
+            </ion-text>
+          </ion-label>
+        </ion-item>
+
+        <ion-item color="tertiary" lines="none">
+          <ion-label>
+            วันที่ชำระล่าสุด
+            <ion-text color="medium">
+              <p>4 มีนาคม 2564 (50 <small>THB</small>)</p>
+            </ion-text>
+          </ion-label>
+
+          <ion-label>
+            วันที่ชำระครั้งถัดไป
+            <ion-text color="medium">
+              <p>1 พฤษภาคม 2564 (50 <small>THB</small>)</p>
+            </ion-text>
+          </ion-label>
+        </ion-item>
+
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
+
+  <ion-list class="ion-padding">
+    <ion-list-header>
+      <ion-label>เลือกช่องทางการชำระเงิน</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>
+        <h2><b>ค้างชำระทั้งหมด</b></h2>
+        <ion-text color="medium">
+          <p>350 <small>THB</small></p>
+        </ion-text>
+      </ion-label>
+      <ion-button class="no-shadow ion-no-margin" mode="md" color="danger" shape="round" slot="end" size="default"
+        routerLink="/qrgenerate">
+        <ion-label class="ion-margin">เลือก</ion-label>
+      </ion-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <h2><b>รายเดือน</b></h2>
+        <ion-text color="medium">
+          <p>50 <small>THB</small></p>
+        </ion-text>
+      </ion-label>
+      <ion-button class="no-shadow ion-no-margin" mode="md" color="danger" shape="round" slot="end" size="default"
+        routerLink="/qrgenerate">
+        <ion-label class="ion-margin">เลือก</ion-label>
+      </ion-button>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>
+        <h2><b>รายปี</b></h2>
+        <ion-text color="medium">
+          <p>600 <small>THB</small></p>
+        </ion-text>
+      </ion-label>
+      <ion-button class="no-shadow ion-no-margin" mode="md" color="danger" shape="round" slot="end" size="default"
+        routerLink="/qrgenerate">
+        <ion-label class="ion-margin">เลือก</ion-label>
+      </ion-button>
+    </ion-item>
+    
+  </ion-list>
+
 </ion-content>

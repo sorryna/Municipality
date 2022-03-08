@@ -1,45 +1,93 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>สร้าง QR จ่ายเงิน</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content mode="ios">
 
-<ion-content>
+  <app-header></app-header>
 
-  <ion-item>
-    <ion-label>เขตเทศบาล</ion-label>
-    <ion-select interface="popover">
-      <ion-select-option value="nes">ตำบลศิลา</ion-select-option>
-    </ion-select>
+  <ion-list class="ion-padding">
+    <ion-list-header>
+      <ion-label>สร้างคิวอาร์โค้ดชำระเงิน</ion-label>
+    </ion-list-header>
+    <ion-searchbar animated placeholder="ค้นหาจากบ้านเลขที่"></ion-searchbar>
+
+    <ion-item lines="none">
+      <ion-label><b>บ้านเลขที่</b></ion-label>
+    </ion-item>
+
+    <ion-item button routerLink="/qroption">
+      <ion-label>
+        พิมานคอนโดปาร์ค
+        <ion-text color="medium">
+          <p>989/27 ตำบล ศิลา อำเภอเมืองขอนแก่น 40000</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button routerLink="/qroption">
+      <ion-label>
+        พิมานคอนโดปาร์ค
+        <ion-text color="medium">
+          <p>12/6 หมู่ 27 ตำบล ศิลา อำเภอเมืองขอนแก่น 40000</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button routerLink="/qroption">
+      <ion-label>
+        บ้านเดี่ยว
+        <ion-text color="medium">
+          <p>919/2 หมู่ 27 ตำบล ในเมือง อำเภอเมืองขอนแก่น 40000</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button routerLink="/qroption">
+      <ion-label>
+        บ้านทาวเฮาท์
+        <ion-text color="medium">
+          <p>90/55 หมู่ 27 ตำบล กุดกว้าง อำเภอเมืองขอนแก่น 40000</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button routerLink="/qroption">
+      <ion-label>
+        บ้านเดี่ยว
+        <ion-text color="medium">
+          <p>123/6 หมู่ 27 ตำบล กุดกว้าง อำเภอเมืองขอนแก่น 40000</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button routerLink="/qroption">
+      <ion-label>
+        บ้านเดี่ยว
+        <ion-text color="medium">
+          <p>44/12 หมู่ 6 ตำบล น้ำพอง อำเภอเมืองขอนแก่น 40000</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button routerLink="/qroption">
+      <ion-label>
+        บ้านเดี่ยว
+        <ion-text color="medium">
+          <p>89/20 หมู่ 10 ตำบล บ้านเป็ด อำเภอเมืองขอนแก่น 40000</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button routerLink="/qroption">
+      <ion-label>
+        บ้านเดี่ยว
+        <ion-text color="medium">
+          <p>56/9 หมู่ 18 ตำบล ในเมือง อำเภอเมืองขอนแก่น 40000</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-item class="ion-text-center ion-no-margin" lines="none">
+    <ion-label color="primary">See More</ion-label>
   </ion-item>
 
-  <ion-card-content class="table">
-    <table>
-      <tr>
-        <th>รายการ</th>
-        <th></th>
-      </tr>
-      <tr [routerLink]="['/qroption']">
-        <td>7/5</td>
-        <td><ion-icon name="arrow-forward"></ion-icon>
-        </td>
-      </tr>
-      <tr [routerLink]="['/qroption']">
-        <td>12/6</td>
-        <td><ion-icon name="arrow-forward"></ion-icon>
-        </td>
-      </tr>
-      <tr [routerLink]="['/qroption']">
-        <td>7/2</td>
-        <td><ion-icon name="arrow-forward"></ion-icon>
-        </td>
-      </tr>
-    </table>
-  </ion-card-content>
-
-  <div>
-    <ion-button expand="block" fill="clear" shape="round">
-      seemore
-    </ion-button>
-  </div>
 </ion-content>

@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { SetupPlanPageRoutingModule } from './setup-plan-routing.module';
 
 import { SetupPlanPage } from './setup-plan.page';
+import { HeaderModule } from '../header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SetupPlanPageRoutingModule
+    SetupPlanPageRoutingModule,
+    HeaderModule
   ],
   declarations: [SetupPlanPage]
 })

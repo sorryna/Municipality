@@ -1,18 +1,23 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
-      <ion-content>
-        <ion-list lines="none" mode="ios">
-          <div class="center">
-            <ion-avatar >
-              <img src="../assets/avatar.svg" alt="">
+      <ion-content class="ion-padding">
+        <ion-list class="ion-no-padding" lines="none" mode="ios">
+
+          <ion-item class="center ion-margin-bottom" color="danger">
+            <ion-avatar slot="start">
+              <img src="assets/avatar.svg" alt="profile-image" />
             </ion-avatar>
-          </div>
+            <ion-label>Admin หมูมะนาว</ion-label>
+          </ion-item>
+
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]"  detail="false" routerLinkActive="selected">
+            <ion-item routerDirection="root" [routerLink]="[p.url]" detail="false" routerLinkActive="selected">
+              <ion-icon [name]="p.icon" slot="start" color="danger"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
+
         </ion-list>
       </ion-content>
     </ion-menu>

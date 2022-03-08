@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { QROptionPageRoutingModule } from './qroption-routing.module';
 
 import { QROptionPage } from './qroption.page';
+import { HeaderModule } from '../header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    QROptionPageRoutingModule
+    QROptionPageRoutingModule,
+    HeaderModule
   ],
   declarations: [QROptionPage]
 })
-export class QROptionPageModule {}
+export class QROptionPageModule { }

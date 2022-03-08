@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./overdue-detail.page.scss'],
 })
 export class OverdueDetailPage implements OnInit {
-  public date: string = new Date(Date.now()).toISOString();
 
   constructor() { }
 

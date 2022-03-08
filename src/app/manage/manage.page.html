@@ -1,49 +1,79 @@
-<ion-content class="ion-padding">
+<ion-content mode="ios">
 
-  <ion-breadcrumbs>
-    <ion-breadcrumb>
-      manage
-    </ion-breadcrumb>
-  </ion-breadcrumbs>
+  <app-header></app-header>
 
-  <ion-card>
-    <ion-button shape="round" (click)="openModal()">
-      <ion-icon name="add-outline"></ion-icon>
-      <ion-label>เพิ่ม</ion-label>
-    </ion-button>
-    <ion-button shape="round">Upload</ion-button>
-    <input type="file" name="photo" />
-  </ion-card>
+  <ion-list class="ion-padding">
+    <ion-list-header>
+      <ion-label>จัดการที่อยู่</ion-label>
+    </ion-list-header>
 
-  <ion-card class="ion-padding">
-    <ion-label>
-      <h2>อัตราการชำระเงิน</h2>
-    </ion-label>
-    <ion-button shape="round" (click)="onSelectApplyPlan()">Apply Plan</ion-button>
-    <ion-button shape="round" routerLink="/setup-plan">Setup Plan</ion-button>
-  </ion-card>
+    <ion-item lines="none">
+      <ion-button class="no-shadow ion-no-margin" mode="md" color="danger" shape="round" size="default"
+        (click)="openModal()">
+        <ion-icon slot="start" name="add"></ion-icon>
+        <ion-label class="ion-margin">เพิ่ม</ion-label>
+      </ion-button>
 
+      <div class="fileUpload">
+        <ion-button class="no-shadow ion-no-margin ion-margin-start" mode="md" color="danger" shape="round"
+          size="default">
+          <ion-icon slot="start" name="add"></ion-icon>
+          <ion-label class="ion-margin">Upload</ion-label>
+        </ion-button>
+        <input type="file" class="upload" />
+      </div>
 
-  <ion-card-content class="table">
-    <table>
-      <tr>
-        <th>รายการ</th>
-        <th>อัตราการชำระเงิน</th>
-      </tr>
-      <tr *ngFor="let item of data">
-        <td>
-          <ion-label>
-            <h2>{{ item.title }}</h2>
-            <h3>
-              <ion-text color="medium">{{ item.address }}</ion-text>
-            </h3>
-          </ion-label>
-        </td>
-        <td>
-          <p *ngIf="item.plan == 1">ขั้นต่ำ</p>
-          <p *ngIf="item.plan == 2">บ้านจัดสรร</p>
-        </td>
-      </tr>
-    </table>
-  </ion-card-content>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="ion-padding">
+    <ion-list-header>
+      <ion-label>อัตราการชำระเงิน</ion-label>
+    </ion-list-header>
+
+    <ion-item lines="none">
+      <ion-button class="no-shadow ion-no-margin" mode="md" color="danger" shape="round" size="default"
+        (click)="onSelectApplyPlan()">
+        <ion-icon slot="start" name="play-circle"></ion-icon>
+        <ion-label class="ion-margin">เลือกใช้</ion-label>
+      </ion-button>
+
+      <ion-button class="no-shadow ion-no-margin ion-margin-start" mode="md" color="danger" shape="round" size="default"
+        routerLink="/setup-plan">
+        <ion-icon slot="start" name="settings"></ion-icon>
+        <ion-label class="ion-margin">ตั้งค่า</ion-label>
+      </ion-button>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label><b>รายการ</b></ion-label>
+      <ion-label class="ion-text-end"><b>อัตราการชำระเงิน</b></ion-label>
+    </ion-item>
+
+    <ion-item *ngFor="let item of data">
+      <ion-label>
+        {{ item.title }}
+        <ion-text color="medium">
+          <p>{{ item.address }}</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end" *ngIf="item.plan == 1">
+        ขั้นต่ำ
+        <ion-text color="medium">
+          <p>(50 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-end" *ngIf="item.plan == 2">
+        บ้านจัดสรร
+        <ion-text color="medium">
+          <p>(100 <small>THB</small>)</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-item class="ion-text-center ion-no-margin" lines="none">
+    <ion-label color="primary">See More</ion-label>
+  </ion-item>
+
 </ion-content>

@@ -1,39 +1,26 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Report</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content mode="ios">
 
-<ion-content>
+  <app-header></app-header>
 
-  <ion-button routerLink="/qr" shape="round">QR</ion-button>
-  <ion-button routerLink="/manage" shape="round">Manage</ion-button>
-  <br>
-
-  <!-- <ion-button id="open-modal">เลือก วันที่</ion-button>
-  <ion-modal trigger="open-modal">
-    <ng-template>
-      <ion-content>
-        <ion-datetime></ion-datetime>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
-
-  <ion-label>{{ date | date:'d/M/yyy' }}</ion-label> -->
-
-  <div class="ion-text-center" routerLink="/payment-bargraph">
-    <img src="/assets/imgs/pie-chart.png">
-  </div>
+  <ion-card class="ion-text-center ion-padding">
+    <ion-card-header class="ion-text-start">
+      <ion-card-title>สัดส่วนการชำระเงิน</ion-card-title>
+      <ion-card-subtitle>กราฟภาพรวมการชำระเงินทั้งหมดของทุกปี</ion-card-subtitle>
+    </ion-card-header>
+    <img src="/assets/imgs/pie-chart.png" alt="graph-overview">
+    <ion-card-content>
+      <a routerLink="/payment-bargraph">ดูรายละเอียดรายปีหรือรายเดือน</a>
+    </ion-card-content>
+  </ion-card>
 
   <ion-list class="ion-text-center ion-padding">
-
-    <ion-item mode="ios" button routerLink="/paid-detail">
+    <ion-item button routerLink="/paid-detail">
       <ion-label>ชำระแล้ว</ion-label>
-      <ion-label>32 %</ion-label>
+      <ion-note slot="end">32 %</ion-note>
     </ion-item>
-    <ion-item mode="ios" button routerLink="/overdue-detail">
+    <ion-item button routerLink="/overdue-detail">
       <ion-label>ค้างชำระ</ion-label>
-      <ion-label>68 %</ion-label>
+      <ion-note slot="end">68 %</ion-note>
     </ion-item>
 
   </ion-list>

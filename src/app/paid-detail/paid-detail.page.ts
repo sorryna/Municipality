@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaidDetailPage implements OnInit {
 
-  public date: string = new Date(Date.now()).toISOString();
-
   constructor() { }
 
   ngOnInit() {
