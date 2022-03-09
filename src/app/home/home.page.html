@@ -2,25 +2,46 @@
 
   <app-header></app-header>
 
-  <ion-card class="ion-text-center ion-padding">
-    <ion-card-header class="ion-text-start">
-      <ion-card-title>สัดส่วนการชำระเงิน</ion-card-title>
-      <ion-card-subtitle>กราฟภาพรวมการชำระเงินทั้งหมดของทุกปี</ion-card-subtitle>
-    </ion-card-header>
-    <img src="/assets/imgs/pie-chart.png" alt="graph-overview">
-    <ion-card-content>
-      <a routerLink="/payment-bargraph">ดูรายละเอียดรายปีหรือรายเดือน</a>
-    </ion-card-content>
-  </ion-card>
+  <ion-list class="ion-padding" lines="none">
+    <ion-list-header>
+      <ion-label>สัดส่วนการชำระเงิน
+        <p>กราฟภาพรวมการชำระเงินทั้งหมดของทุกปี</p>
+      </ion-label>
+    </ion-list-header>
+
+    <ion-button class="no-shadow" mode="md" color="danger" shape="round" size="default" routerLink="/payment-bargraph">
+      <ion-icon slot="start" name="bar-chart"></ion-icon>
+      <ion-label class="ion-margin">ดูรายละเอียดประจำปี</ion-label>
+    </ion-button>
+
+    <ion-card class="ion-text-center">
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <img [src]="chartUrl" alt="graph-overview">
+          </ion-col>
+          <ion-col size="12">
+            <ion-button class="no-shadow" mode="md" color="danger" shape="round" size="default"
+              (click)="onSwitchChart()">
+              <ion-icon slot="start" name="repeat"></ion-icon>
+              <ion-label class="ion-margin">{{ buttonText }}</ion-label>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-card>
+  </ion-list>
 
   <ion-list class="ion-text-center ion-padding">
     <ion-item button routerLink="/paid-detail">
       <ion-label>ชำระแล้ว</ion-label>
-      <ion-note slot="end">32 %</ion-note>
+      <ion-note slot="end">49.6 %</ion-note>
     </ion-item>
     <ion-item button routerLink="/overdue-detail">
       <ion-label>ค้างชำระ</ion-label>
-      <ion-note slot="end">68 %</ion-note>
+      <ion-note slot="end">50.4 %</ion-note>
     </ion-item>
 
   </ion-list>
