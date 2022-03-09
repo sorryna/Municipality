@@ -271,6 +271,22 @@ a.link-medium{
     border-radius: 10px;
 }
 
+img.chart {
+    width: 100%;
+}
+
+@media only screen and (min-width: 992px) {
+    img.chart {
+        max-width: 90%;
+    }
+}
+
+@media only screen and (min-width: 992px) and (min-height: 800px) {
+    img.chart {
+        max-width: 60%;
+    }
+}
+
 // Fonts
 // --------------------------------------------------
 @font-face {
