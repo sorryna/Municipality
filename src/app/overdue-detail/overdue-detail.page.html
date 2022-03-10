@@ -84,7 +84,7 @@
                 </ion-col>
                 <ion-col size-lg="3" size-xs="4">
                   <ion-label class="ion-text-end">
-                    {{ item.paymentInfo.overdueDateAmount }} เดือน
+                    {{ item.paymentInfo.overdueDateTimes }} เดือน
                     <ion-text color="medium">
                       <p>({{ item.paymentInfo.overdueAmount }} <small>THB</small>)</p>
                     </ion-text>
@@ -130,7 +130,7 @@
               ค้างชำระ<br>
               <ion-text color="medium">
                 <small>
-                  {{ item.paymentInfo.overdueDateAmount }} เดือน ({{ item.paymentInfo.overdueAmount }} THB)<br>
+                  {{ item.paymentInfo.overdueDateTimes }} เดือน ({{ item.paymentInfo.overdueAmount }} THB)<br>
                   {{ item.paymentInfo.overdueDate }}
                 </small>
               </ion-text>

@@ -17,7 +17,7 @@ export class PaidDetailPage implements OnInit {
 
     this.totalData = dataSvc.addresses.
       filter(it => it.paymentInfo.overdueDate == null &&
-        it.paymentInfo.overdueDateAmount == null &&
+        it.paymentInfo.overdueDateTimes == null &&
         it.paymentInfo.overdueAmount == null);
 
     let copy = this.totalData.map(it => it);
