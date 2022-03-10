@@ -92,39 +92,38 @@
         <ion-label>เลือกช่องทางการชำระเงิน</ion-label>
       </ion-list-header>
 
-      <ion-item *ngIf="data.paymentInfo && data.paymentInfo.overdueAmount"
-        (click)="onSelectPay(data.paymentInfo.overdueAmount)">
+      <ion-item *ngIf="data.paymentInfo && data.paymentInfo.overdueAmount">
         <ion-label>
           <h2><b>ค้างชำระทั้งหมด</b></h2>
           <ion-text color="medium">
             <p>{{ data.paymentInfo.overdueAmount }} <small>THB</small></p>
           </ion-text>
         </ion-label>
-        <ion-button class="no-shadow ion-no-margin" mode="md" color="danger" shape="round" slot="end" size="default">
+        <ion-button class="no-shadow ion-no-margin" mode="md" color="danger" shape="round" slot="end" size="default" (click)="onSelectPay(data.paymentInfo.overdueAmount)">
           <ion-label class="ion-margin">เลือก</ion-label>
         </ion-button>
       </ion-item>
 
-      <ion-item (click)="onSelectPay(50)">
+      <ion-item>
         <ion-label>
           <h2><b>รายเดือน</b></h2>
           <ion-text color="medium">
             <p>50 <small>THB</small></p>
           </ion-text>
         </ion-label>
-        <ion-button class="no-shadow ion-no-margin" mode="md" color="danger" shape="round" slot="end" size="default">
+        <ion-button class="no-shadow ion-no-margin" mode="md" color="danger" shape="round" slot="end" size="default" (click)="onSelectPay(50)">
           <ion-label class="ion-margin">เลือก</ion-label>
         </ion-button>
       </ion-item>
 
-      <ion-item (click)="onSelectPay(600)">
+      <ion-item>
         <ion-label>
           <h2><b>รายปี</b></h2>
           <ion-text color="medium">
             <p>600 <small>THB</small></p>
           </ion-text>
         </ion-label>
-        <ion-button class="no-shadow ion-no-margin" mode="md" color="danger" shape="round" slot="end" size="default">
+        <ion-button class="no-shadow ion-no-margin" mode="md" color="danger" shape="round" slot="end" size="default" (click)="onSelectPay(600)">
           <ion-label class="ion-margin">เลือก</ion-label>
         </ion-button>
       </ion-item>
