@@ -11,7 +11,6 @@ export class PaidDetailPage implements OnInit {
   private totalData: AddressInfo[];
   private currentData: AddressInfo[];
 
-  public totalAmountData: number;
   public dispalyData: AddressInfo[] = new Array<AddressInfo>();
 
   constructor(private dataSvc: DataService) {
@@ -21,7 +20,6 @@ export class PaidDetailPage implements OnInit {
         it.paymentInfo.overrideDateAmount == null &&
         it.paymentInfo.overdueAmount == null);
 
-    this.totalAmountData = this.totalData.length;
     let copy = this.totalData.map(it => it);
     this.currentData = copy.splice(0, 20);
 
