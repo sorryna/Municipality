@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { AddressInfo, DataService } from 'src/services/data.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class OverdueDetailPage implements OnInit {
 
   public dispalyData: AddressInfo[] = new Array<AddressInfo>();
 
-  constructor(private dataSvc: DataService) {
+  constructor(private dataSvc: DataService, private router: Router) {
 
     this.totalData = dataSvc.addresses.
       filter(it => it.paymentInfo.overdueDate != null &&
@@ -50,6 +51,12 @@ export class OverdueDetailPage implements OnInit {
     else {
       this.dispalyData = this.currentData;
     }
+  }
+
+  onSelectPayOverdue(value: any) {
+    let navigation = [{ url: "/home", text: "รายงาน" }, { url: "/overdue-detail", text: "ค้างชำระ" }]
+    let param: NavigationExtras = { queryParams: { id: value.id, navigation: JSON.stringify(navigation) } };
+    this.router.navigate(['/qroption'], param);
   }
 
 }
