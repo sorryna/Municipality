@@ -9,7 +9,8 @@ import { AddressInfo, DataService } from 'src/services/data.service';
 export class OverdueDetailPage implements OnInit {
 
   private totalData: AddressInfo[];
-  
+  private currentData: AddressInfo[];
+
   public totalAmountData: number;
   public dispalyData: AddressInfo[] = new Array<AddressInfo>();
 
@@ -21,7 +22,10 @@ export class OverdueDetailPage implements OnInit {
         it.paymentInfo.overdueAmount != null);
 
     this.totalAmountData = this.totalData.length;
-    this.dispalyData = this.totalData.splice(0, 20);
+    let copy = this.totalData.map(it => it);
+    this.currentData = copy.splice(0, 20);
+
+    this.dispalyData = this.currentData;
   }
 
   ngOnInit() {
@@ -30,12 +34,24 @@ export class OverdueDetailPage implements OnInit {
   loadData(event) {
     setTimeout(() => {
 
-      let insertData = this.totalData.splice(0, 10);
-      insertData.forEach(it => this.dispalyData.push(it));
+      let copy = this.totalData.map(it => it).splice(this.dispalyData.length, 10);
+      copy.forEach(it => this.currentData.push(it));
 
-      if (this.totalData.length < 1) { event.target.disabled = true; }
+      this.dispalyData = this.currentData;
+
+      if (this.dispalyData.length >= this.totalData.length) { event.target.disabled = true; }
       event.target.complete();
     }, 1000);
+  }
+
+  onSearch(event) {
+    let search = event.detail.value;
+    if (search) {
+      this.dispalyData = this.totalData.filter(it => it.address.includes(search)).map(it => it);
+    }
+    else {
+      this.dispalyData = this.currentData;
+    }
   }
 
 }

@@ -16,7 +16,7 @@
       <ion-label>ชำระแล้ว ({{ totalAmountData }} รายการ)</ion-label>
     </ion-list-header>
 
-    <ion-searchbar animated placeholder="ค้นหาจากบ้านเลขที่"></ion-searchbar>
+    <ion-searchbar animated placeholder="ค้นหาจากบ้านเลขที่" (ionChange)="onSearch($event)"></ion-searchbar>
     <ion-item class="ion-text-end ion-hide-lg-up">
       <ion-label color="medium">คลิกรายการ เพื่อดูรายละเอียดเพิ่มเติม</ion-label>
       <ion-icon name="alert-circle-outline" slot="end" color="medium"></ion-icon>
