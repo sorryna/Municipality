@@ -9,9 +9,9 @@ import { AddressInfo, DataService } from 'src/services/data.service';
 })
 export class OverdueDetailPage implements OnInit {
 
-  private totalData: AddressInfo[];
-  private currentData: AddressInfo[];
+  private currentData: AddressInfo[] = new Array<AddressInfo>()
 
+  public totalData: AddressInfo[] = new Array<AddressInfo>();
   public dispalyData: AddressInfo[] = new Array<AddressInfo>();
 
   constructor(private dataSvc: DataService, private router: Router) {
