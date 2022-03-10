@@ -3,111 +3,143 @@
   <app-header></app-header>
 
   <ion-breadcrumbs class="ion-padding">
-    <ion-breadcrumb routerLink="/qr">
-      สร้างคิวอาร์โค้ดชำระเงิน
+    <ion-breadcrumb *ngFor="let item of navigations" [routerLink]="item.url">
+      {{ item.text }}
     </ion-breadcrumb>
     <ion-breadcrumb routerLink="/qroption">
       ช่องทางการชำระเงิน
     </ion-breadcrumb>
   </ion-breadcrumbs>
 
-  <ion-list class="ion-padding">
-    <ion-list-header>
-      <ion-label>ข้อมูลที่อยู่</ion-label>
-    </ion-list-header>
+  <ng-container *ngIf="data">
 
-    <ion-card color="tertiary">
-      <ion-card-content class="ion-no-padding">
-        <ion-item color="tertiary" lines="full">
-          <ion-label>
-            พิมานคอนโดปาร์ค
-            <ion-text color="medium">
-              <p>90/55 หมู่ 27 ตำบล กุดกว้าง อำเภอเมืองขอนแก่น 40000</p>
-            </ion-text>
-          </ion-label>
-        </ion-item>
+    <ion-list class="ion-padding">
+      <ion-list-header>
+        <ion-label>ข้อมูลที่อยู่</ion-label>
+      </ion-list-header>
 
-        <ion-item color="tertiary" lines="none">
-          <ion-label>
-            ชำระล่วงหน้า
-            <ion-text color="medium">
-              <p>-</p>
-            </ion-text>
-          </ion-label>
+      <ion-card color="tertiary" class="border-radius">
+        <ion-card-content>
+          {{ data.displayName }}
+          <ion-text color="medium">
+            <p>{{ data.fullAddress }}</p>
+          </ion-text>
 
-          <ion-label>
-            ค้างชำระ
-            <ion-text color="medium">
-              <p>7 เดือน (350 <small>THB</small>)</p>
-            </ion-text>
-          </ion-label>
-        </ion-item>
+          <ion-grid class="ion-no-padding ion-padding-top">
+            <ion-row>
+              <ion-col size-lg="3" size-xs="6">
+                ชำระล่วงหน้า
+                <ion-text color="medium">
+                  <p *ngIf="data.paymentInfo && data.paymentInfo.prepayTimes && data.paymentInfo.prepayAmount">{{
+                    data.paymentInfo.prepayTimes }} เดือน ( {{ data.paymentInfo.prepayAmount }} <small>THB</small>)
+                  </p>
+                  <p *ngIf="!(data.paymentInfo && data.paymentInfo.prepayTimes && data.paymentInfo.prepayAmount)">-
+                  </p>
+                </ion-text>
+              </ion-col>
+              <ion-col size-lg="9" size-xs="6">
+                ค้างชำระ
+                <ion-text color="medium">
+                  <p
+                    *ngIf="data.paymentInfo && data.paymentInfo.overdueDate && data.paymentInfo.overdueAmount && data.paymentInfo.overdueDateTimes">
+                    {{ data.paymentInfo.overdueDateTimes}} เดือน ({{ data.paymentInfo.overdueAmount }}
+                    <small>THB</small>)<br>
+                    {{ data.paymentInfo.overdueDate }}
+                  </p>
+                  <p
+                    *ngIf="!(data.paymentInfo && data.paymentInfo.overdueDate && data.paymentInfo.overdueAmount && data.paymentInfo.overdueDateTimes)">
+                    -</p>
+                </ion-text>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
 
-        <ion-item color="tertiary" lines="none">
-          <ion-label>
-            วันที่ชำระล่าสุด
-            <ion-text color="medium">
-              <p>4 มีนาคม 2564 (50 <small>THB</small>)</p>
-            </ion-text>
-          </ion-label>
+          <ion-grid class="ion-no-padding ion-padding-top">
+            <ion-row>
+              <ion-col size-lg="3" size-xs="6">
+                วันที่ชำระล่าสุด
+                <ion-text color="medium">
+                  <p *ngIf="data.paymentInfo && data.paymentInfo.lastedPaidDate && data.paymentInfo.lastedPaidAmount">
+                    {{ data.paymentInfo.lastedPaidDate }} ({{ data.paymentInfo.lastedPaidAmount }} <small>THB</small>)
+                  </p>
+                  <p
+                    *ngIf="!(data.paymentInfo && data.paymentInfo.lastedPaidDate && data.paymentInfo.lastedPaidAmount)">
+                    -
+                  </p>
+                </ion-text>
+              </ion-col>
+              <ion-col size-lg="9" size-xs="6">
+                วันที่ชำระครั้งถัดไป
+                <ion-text color="medium">
+                  <p *ngIf="data.paymentInfo && data.paymentInfo.nextPaidDate && data.paymentInfo.nextPaidAmount">
+                    {{ data.paymentInfo.nextPaidDate }} ({{ data.paymentInfo.nextPaidAmount }} <small>THB</small>)
+                  </p>
+                  <p *ngIf="!(data.paymentInfo && data.paymentInfo.nextPaidDate && data.paymentInfo.nextPaidAmount)">
+                    -
+                  </p>
+                </ion-text>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
 
-          <ion-label>
-            วันที่ชำระครั้งถัดไป
-            <ion-text color="medium">
-              <p>1 พฤษภาคม 2564 (50 <small>THB</small>)</p>
-            </ion-text>
-          </ion-label>
-        </ion-item>
+        </ion-card-content>
+      </ion-card>
 
+    </ion-list>
+
+    <ion-list class="ion-padding">
+      <ion-list-header>
+        <ion-label>เลือกช่องทางการชำระเงิน</ion-label>
+      </ion-list-header>
+
+      <ion-item *ngIf="data.paymentInfo && data.paymentInfo.overdueAmount"
+        (click)="onSelectPay(data.paymentInfo.overdueAmount)">
+        <ion-label>
+          <h2><b>ค้างชำระทั้งหมด</b></h2>
+          <ion-text color="medium">
+            <p>{{ data.paymentInfo.overdueAmount }} <small>THB</small></p>
+          </ion-text>
+        </ion-label>
+        <ion-button class="no-shadow ion-no-margin" mode="md" color="danger" shape="round" slot="end" size="default">
+          <ion-label class="ion-margin">เลือก</ion-label>
+        </ion-button>
+      </ion-item>
+
+      <ion-item (click)="onSelectPay(50)">
+        <ion-label>
+          <h2><b>รายเดือน</b></h2>
+          <ion-text color="medium">
+            <p>50 <small>THB</small></p>
+          </ion-text>
+        </ion-label>
+        <ion-button class="no-shadow ion-no-margin" mode="md" color="danger" shape="round" slot="end" size="default">
+          <ion-label class="ion-margin">เลือก</ion-label>
+        </ion-button>
+      </ion-item>
+
+      <ion-item (click)="onSelectPay(600)">
+        <ion-label>
+          <h2><b>รายปี</b></h2>
+          <ion-text color="medium">
+            <p>600 <small>THB</small></p>
+          </ion-text>
+        </ion-label>
+        <ion-button class="no-shadow ion-no-margin" mode="md" color="danger" shape="round" slot="end" size="default">
+          <ion-label class="ion-margin">เลือก</ion-label>
+        </ion-button>
+      </ion-item>
+
+    </ion-list>
+
+  </ng-container>
+  <ng-container *ngIf="!data">
+
+    <ion-card class="ion-text-center">
+      <ion-card-content>
+        <h1>ไม่พบข้อมูลครัวเรือน</h1>
+        <p>กรุณาตรวจสอบใหม่อีกครั้ง</p>
       </ion-card-content>
     </ion-card>
-
-  </ion-list>
-
-  <ion-list class="ion-padding">
-    <ion-list-header>
-      <ion-label>เลือกช่องทางการชำระเงิน</ion-label>
-    </ion-list-header>
-
-    <ion-item>
-      <ion-label>
-        <h2><b>ค้างชำระทั้งหมด</b></h2>
-        <ion-text color="medium">
-          <p>350 <small>THB</small></p>
-        </ion-text>
-      </ion-label>
-      <ion-button class="no-shadow ion-no-margin" mode="md" color="danger" shape="round" slot="end" size="default"
-        routerLink="/qrgenerate">
-        <ion-label class="ion-margin">เลือก</ion-label>
-      </ion-button>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>
-        <h2><b>รายเดือน</b></h2>
-        <ion-text color="medium">
-          <p>50 <small>THB</small></p>
-        </ion-text>
-      </ion-label>
-      <ion-button class="no-shadow ion-no-margin" mode="md" color="danger" shape="round" slot="end" size="default"
-        routerLink="/qrgenerate">
-        <ion-label class="ion-margin">เลือก</ion-label>
-      </ion-button>
-    </ion-item>
-    
-    <ion-item>
-      <ion-label>
-        <h2><b>รายปี</b></h2>
-        <ion-text color="medium">
-          <p>600 <small>THB</small></p>
-        </ion-text>
-      </ion-label>
-      <ion-button class="no-shadow ion-no-margin" mode="md" color="danger" shape="round" slot="end" size="default"
-        routerLink="/qrgenerate">
-        <ion-label class="ion-margin">เลือก</ion-label>
-      </ion-button>
-    </ion-item>
-    
-  </ion-list>
+  </ng-container>
 
 </ion-content>

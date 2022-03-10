@@ -3,65 +3,81 @@
   <app-header></app-header>
 
   <ion-breadcrumbs class="ion-padding">
-    <ion-breadcrumb routerLink="/qr">
-      สร้างคิวอาร์โค้ดชำระเงิน
-    </ion-breadcrumb>
-    <ion-breadcrumb routerLink="/qroption">
-      ช่องทางการชำระเงิน
+    <ion-breadcrumb *ngFor="let item of navigations" (click)="onSelectRoute(item)">
+      {{ item.text }}
     </ion-breadcrumb>
     <ion-breadcrumb routerLink="/qrgenerate">
       คิวอาร์โค้ดชำระเงิน
     </ion-breadcrumb>
   </ion-breadcrumbs>
 
-
   <ion-list class="ion-padding">
     <ion-list-header>
       <ion-label>ข้อมูลที่อยู่</ion-label>
     </ion-list-header>
 
-    <ion-card color="tertiary">
-      <ion-card-content class="ion-no-padding">
-        <ion-item color="tertiary" lines="full">
-          <ion-label>
-            พิมานคอนโดปาร์ค
-            <ion-text color="medium">
-              <p>90/55 หมู่ 27 ตำบล กุดกว้าง อำเภอเมืองขอนแก่น 40000</p>
-            </ion-text>
-          </ion-label>
-        </ion-item>
+    <ion-card color="tertiary" class="border-radius">
+      <ion-card-content>
+        {{ data.displayName }}
+        <ion-text color="medium">
+          <p>{{ data.fullAddress }}</p>
+        </ion-text>
 
-        <ion-item color="tertiary" lines="none">
-          <ion-label>
-            ชำระล่วงหน้า
-            <ion-text color="medium">
-              <p>-</p>
-            </ion-text>
-          </ion-label>
+        <ion-grid class="ion-no-padding ion-padding-top">
+          <ion-row>
+            <ion-col size-lg="3" size-xs="6">
+              ชำระล่วงหน้า
+              <ion-text color="medium">
+                <p *ngIf="data.paymentInfo && data.paymentInfo.prepayTimes && data.paymentInfo.prepayAmount">{{
+                  data.paymentInfo.prepayTimes }} เดือน ( {{ data.paymentInfo.prepayAmount }} <small>THB</small>)
+                </p>
+                <p *ngIf="!(data.paymentInfo && data.paymentInfo.prepayTimes && data.paymentInfo.prepayAmount)">-
+                </p>
+              </ion-text>
+            </ion-col>
+            <ion-col size-lg="9" size-xs="6">
+              ค้างชำระ
+              <ion-text color="medium">
+                <p
+                  *ngIf="data.paymentInfo && data.paymentInfo.overdueDate && data.paymentInfo.overdueAmount && data.paymentInfo.overdueDateTimes">
+                  {{ data.paymentInfo.overdueDateTimes}} เดือน ({{ data.paymentInfo.overdueAmount }}
+                  <small>THB</small>)<br>
+                  {{ data.paymentInfo.overdueDate }}
+                </p>
+                <p
+                  *ngIf="!(data.paymentInfo && data.paymentInfo.overdueDate && data.paymentInfo.overdueAmount && data.paymentInfo.overdueDateTimes)">
+                  -</p>
+              </ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-          <ion-label>
-            ค้างชำระ
-            <ion-text color="medium">
-              <p>7 เดือน (350 <small>THB</small>)</p>
-            </ion-text>
-          </ion-label>
-        </ion-item>
-
-        <ion-item color="tertiary" lines="none">
-          <ion-label>
-            วันที่ชำระล่าสุด
-            <ion-text color="medium">
-              <p>4 มีนาคม 2564 (50 <small>THB</small>)</p>
-            </ion-text>
-          </ion-label>
-
-          <ion-label>
-            วันที่ชำระครั้งถัดไป
-            <ion-text color="medium">
-              <p>1 พฤษภาคม 2564 (50 <small>THB</small>)</p>
-            </ion-text>
-          </ion-label>
-        </ion-item>
+        <ion-grid class="ion-no-padding ion-padding-top">
+          <ion-row>
+            <ion-col size-lg="3" size-xs="6">
+              วันที่ชำระล่าสุด
+              <ion-text color="medium">
+                <p *ngIf="data.paymentInfo && data.paymentInfo.lastedPaidDate && data.paymentInfo.lastedPaidAmount">
+                  {{ data.paymentInfo.lastedPaidDate }} ({{ data.paymentInfo.lastedPaidAmount }} <small>THB</small>)
+                </p>
+                <p *ngIf="!(data.paymentInfo && data.paymentInfo.lastedPaidDate && data.paymentInfo.lastedPaidAmount)">
+                  -
+                </p>
+              </ion-text>
+            </ion-col>
+            <ion-col size-lg="9" size-xs="6">
+              วันที่ชำระครั้งถัดไป
+              <ion-text color="medium">
+                <p *ngIf="data.paymentInfo && data.paymentInfo.nextPaidDate && data.paymentInfo.nextPaidAmount">
+                  {{ data.paymentInfo.nextPaidDate }} ({{ data.paymentInfo.nextPaidAmount }} <small>THB</small>)
+                </p>
+                <p *ngIf="!(data.paymentInfo && data.paymentInfo.nextPaidDate && data.paymentInfo.nextPaidAmount)">
+                  -
+                </p>
+              </ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
       </ion-card-content>
     </ion-card>
@@ -75,9 +91,9 @@
         <img src="assets/imgs/qr.png">
         <ion-label>จำนวนเงิน</ion-label>
         <ion-label color="danger">
-          <h1><b>50.00 <small>THB</small></b></h1>
+          <h1><b>{{ amount }}.00 <small>THB</small></b></h1>
         </ion-label>
-        <ion-label>(จ่ายด้วย mana เหลือ 40 <small>THB</small>)</ion-label>
+        <ion-label>(จ่ายด้วย mana เหลือ {{ (amount-10)}} <small>THB</small>)</ion-label>
       </ion-label>
     </ion-item>
     <ion-card class="ion-text-center">
