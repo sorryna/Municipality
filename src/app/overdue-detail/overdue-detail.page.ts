@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { AddressInfo, DataService } from 'src/services/data.service';
+import { AddressInfo, DataService, PaymentStatus } from 'src/services/data.service';
 
 @Component({
   selector: 'app-overdue-detail',
@@ -16,10 +16,8 @@ export class OverdueDetailPage implements OnInit {
 
   constructor(private dataSvc: DataService, private router: Router) {
 
-    this.totalData = dataSvc.addresses.
-      filter(it => it.paymentInfo.overdueDate != null &&
-        it.paymentInfo.overdueDateTimes != null &&
-        it.paymentInfo.overdueAmount != null);
+    this.totalData = dataSvc.addresses
+      .filter(it => it.payment.extend && it.payment.extend.status == PaymentStatus.Overdue);
 
     let copy = this.totalData.map(it => it);
     this.currentData = copy.splice(0, 20);
