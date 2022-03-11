@@ -16,7 +16,7 @@ export class PaidDetailPage implements OnInit {
   constructor(private dataSvc: DataService) {
 
     this.totalData = dataSvc.addresses
-      .filter(it => it.payment.extend == null || (it.payment.extend && it.payment.extend.status == PaymentStatus.Prepay));
+      .filter(it => it.payment.extend && (it.payment.extend.status == PaymentStatus.None || it.payment.extend.status == PaymentStatus.Prepay));
 
     let copy = this.totalData.map(it => it);
     this.currentData = copy.splice(0, 20);

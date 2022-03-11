@@ -26,41 +26,12 @@
         <ion-grid class="ion-no-padding ion-padding-top">
           <ion-row>
             <ion-col size-lg="3" size-xs="6">
-              ชำระล่วงหน้า
-              <ion-text color="medium">
-                <p *ngIf="data.paymentInfo && data.paymentInfo.prepayTimes && data.paymentInfo.prepayAmount">{{
-                  data.paymentInfo.prepayTimes }} เดือน ( {{ data.paymentInfo.prepayAmount }} <small>THB</small>)
-                </p>
-                <p *ngIf="!(data.paymentInfo && data.paymentInfo.prepayTimes && data.paymentInfo.prepayAmount)">-
-                </p>
-              </ion-text>
-            </ion-col>
-            <ion-col size-lg="9" size-xs="6">
-              ค้างชำระ
-              <ion-text color="medium">
-                <p
-                  *ngIf="data.paymentInfo && data.paymentInfo.overdueDate && data.paymentInfo.overdueAmount && data.paymentInfo.overdueDateTimes">
-                  {{ data.paymentInfo.overdueDateTimes}} เดือน ({{ data.paymentInfo.overdueAmount }}
-                  <small>THB</small>)<br>
-                  {{ data.paymentInfo.overdueDate }}
-                </p>
-                <p
-                  *ngIf="!(data.paymentInfo && data.paymentInfo.overdueDate && data.paymentInfo.overdueAmount && data.paymentInfo.overdueDateTimes)">
-                  -</p>
-              </ion-text>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-
-        <ion-grid class="ion-no-padding ion-padding-top">
-          <ion-row>
-            <ion-col size-lg="3" size-xs="6">
               วันที่ชำระล่าสุด
               <ion-text color="medium">
-                <p *ngIf="data.paymentInfo && data.paymentInfo.lastedPaidDate && data.paymentInfo.lastedPaidAmount">
-                  {{ data.paymentInfo.lastedPaidDate }} ({{ data.paymentInfo.lastedPaidAmount }} <small>THB</small>)
+                <p *ngIf="data.payment && data.payment.lastedPaid">
+                  {{ data.payment.lastedPaid.localDate }} ({{ data.payment.lastedPaid.amount }} <small>THB</small>)
                 </p>
-                <p *ngIf="!(data.paymentInfo && data.paymentInfo.lastedPaidDate && data.paymentInfo.lastedPaidAmount)">
+                <p *ngIf="!(data.payment && data.payment.lastedPaid)">
                   -
                 </p>
               </ion-text>
@@ -68,11 +39,29 @@
             <ion-col size-lg="9" size-xs="6">
               วันที่ชำระครั้งถัดไป
               <ion-text color="medium">
-                <p *ngIf="data.paymentInfo && data.paymentInfo.nextPaidDate && data.paymentInfo.nextPaidAmount">
-                  {{ data.paymentInfo.nextPaidDate }} ({{ data.paymentInfo.nextPaidAmount }} <small>THB</small>)
+                <p *ngIf="data.payment && data.payment.nextPay">
+                  {{ data.payment.nextPay.localDate }} ({{ data.payment.nextPay.amount }} <small>THB</small>)
                 </p>
-                <p *ngIf="!(data.paymentInfo && data.paymentInfo.nextPaidDate && data.paymentInfo.nextPaidAmount)">
+                <p *ngIf="!(data.payment && data.payment.nextPay)">
                   -
+                </p>
+              </ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid class="ion-no-padding ion-padding-top">
+          <ion-row>
+            <ion-col size="12" *ngIf="data.payment && data.payment.extend && data.payment.extend.status != 0">
+              <ion-label *ngIf="data.payment.extend.status == 1">ชำระล่วงหน้า</ion-label>
+              <ion-label *ngIf="data.payment.extend.status == 2">ค้างชำระ</ion-label>
+              <ion-text color="medium">
+                <p>
+                  {{ data.payment.extend.info.times }} เดือน ( {{ data.payment.extend.info.amount }}
+                  <small>THB</small>) <br>
+                  <ion-label *ngIf="data.payment.extend.status == 1">ถึง</ion-label>
+                  <ion-label *ngIf="data.payment.extend.status == 2">ตั้งแต่</ion-label>
+                  {{ data.payment.extend.info.localDate }}
                 </p>
               </ion-text>
             </ion-col>

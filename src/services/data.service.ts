@@ -24,11 +24,11 @@ export class DataService {
   constructor() {
     this.addresses = new Array<AddressInfo>(
       // ชำระแล้ว
-      new AddressInfo("add-01", "บ้านเดี่ยว", "190/1", "12", "", "เมืองเก่า", "เมืองขอนแก่น", "ขอนแก่น", "40000", new PaymentHistory(new PaymentTime(150, 3), new PaymentDate(50, date(2022, 3, 20)), new PaymentDate(50, date(2022, 5, 1)), new PaymentInfoExtended(new PaymentInfo(50, 1, date(2022, 4)), PaymentStatus.Prepay))),
-      new AddressInfo("add-05", "บ้านเดี่ยว", "2/4", "14", "", "เมืองเก่า", "เมืองขอนแก่น", "ขอนแก่น", "40000", new PaymentHistory(new PaymentTime(150, 3), new PaymentDate(50, date(2022, 3, 12)), new PaymentDate(50, date(2022, 4, 1)))),
+      new AddressInfo("add-01", "บ้านเดี่ยว", "190/1", "12", "", "เมืองเก่า", "เมืองขอนแก่น", "ขอนแก่น", "40000", new PaymentHistory(new PaymentTime(150, 3), new PaymentDate(50, date(2022, 3, 20)), new PaymentDate(50, date(2022, 5, 1)), new PaymentInfoExtended(PaymentStatus.Prepay, new PaymentInfo(50, 1, date(2022, 4))))),
+      new AddressInfo("add-05", "บ้านเดี่ยว", "2/4", "14", "", "เมืองเก่า", "เมืองขอนแก่น", "ขอนแก่น", "40000", new PaymentHistory(new PaymentTime(150, 3), new PaymentDate(50, date(2022, 3, 12)), new PaymentDate(50, date(2022, 4, 1)), new PaymentInfoExtended(PaymentStatus.None))),
 
       // ค้างชำระ
-      new AddressInfo("add-21", "บ้านเดี่ยว", "8/9", "27", "", "กุดกว้าง", "เมืองขอนแก่น", "ขอนแก่น", "40000", new PaymentHistory(new PaymentTime(350, 7), new PaymentDate(50, date(2021, 12, 1)), new PaymentDate(50, date(2022, 3, 1)), new PaymentInfoExtended(new PaymentInfo(150, 3, date(2022, 1)), PaymentStatus.Overdue))),
+      new AddressInfo("add-21", "บ้านเดี่ยว", "8/9", "27", "", "กุดกว้าง", "เมืองขอนแก่น", "ขอนแก่น", "40000", new PaymentHistory(new PaymentTime(350, 7), new PaymentDate(50, date(2021, 12, 1)), new PaymentDate(50, date(2022, 3, 1)), new PaymentInfoExtended(PaymentStatus.Overdue, new PaymentInfo(150, 3, date(2022, 1))))),
     );
 
     this.plans = new Array<PlanInfo>(
@@ -106,11 +106,12 @@ export class PaymentInfo extends PaymentDate implements PaymentTime {
 
 export class PaymentInfoExtended {
   constructor(
-    public info: PaymentInfo,
-    public status: PaymentStatus) { }
+    public status: PaymentStatus,
+    public info: PaymentInfo = null) { }
 }
 
 export enum PaymentStatus {
+  None,
   Prepay, // ชำระล่วงหน้า
   Overdue // ค้างชำระ
 }
