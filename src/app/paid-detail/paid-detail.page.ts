@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AddressInfo, DataService } from 'src/services/data.service';
+import { AddressInfo, DataService, PaymentStatus } from 'src/services/data.service';
 
 @Component({
   selector: 'app-paid-detail',
@@ -15,10 +15,8 @@ export class PaidDetailPage implements OnInit {
 
   constructor(private dataSvc: DataService) {
 
-    this.totalData = dataSvc.addresses.
-      filter(it => it.paymentInfo.overdueDate == null &&
-        it.paymentInfo.overdueDateTimes == null &&
-        it.paymentInfo.overdueAmount == null);
+    this.totalData = dataSvc.addresses
+      .filter(it => it.payment.extend == null || (it.payment.extend && it.payment.extend.status == PaymentStatus.Prepay));
 
     let copy = this.totalData.map(it => it);
     this.currentData = copy.splice(0, 20);

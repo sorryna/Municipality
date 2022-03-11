@@ -76,17 +76,17 @@
                 </ion-col>
                 <ion-col size-lg="3" size-xs="5">
                   <ion-label class="ion-text-end">
-                    {{ item.paymentInfo.lastedPaidDate }}
+                    {{ item.payment.lastedPaid.localDate }}
                     <ion-text color="medium">
-                      <p>({{ item.paymentInfo.lastedPaidAmount }} <small>THB</small>)</p>
+                      <p>({{ item.payment.lastedPaid.amount }} <small>THB</small>)</p>
                     </ion-text>
                   </ion-label>
                 </ion-col>
                 <ion-col size-lg="3" size-xs="4">
                   <ion-label class="ion-text-end">
-                    {{ item.paymentInfo.nextPaidDate }}
+                    {{ item.payment.nextPay.localDate }}
                     <ion-text color="medium">
-                      <p>({{ item.paymentInfo.nextPaidAmount }} <small>THB</small>)</p>
+                      <p>({{ item.payment.nextPay.amount }} <small>THB</small>)</p>
                     </ion-text>
                   </ion-label>
                 </ion-col>
@@ -95,10 +95,16 @@
 
           </ion-col>
           <ion-col size-lg="2" size-xs="3">
-            <ion-label class="ion-text-end">
-              {{ item.paymentInfo.prepayTimes }} เดือน
+            <ion-label class="ion-text-end" *ngIf="item.payment.extend && item.payment.extend.info">
+              {{ item.payment.extend.info.times }} เดือน
               <ion-text color="medium">
-                <p>({{ item.paymentInfo.prepayAmount }} <small>THB</small>)</p>
+                <p>({{ item.payment.extend.info.amount }} <small>THB</small>)</p>
+              </ion-text>
+            </ion-label>
+            <ion-label class="ion-text-end" *ngIf="!(item.payment.extend && item.payment.extend.info)">
+              -
+              <ion-text color="medium">
+                <p>&nbsp;</p>
               </ion-text>
             </ion-label>
           </ion-col>
@@ -123,7 +129,7 @@
               ชำระล่าสุด<br>
               <ion-text color="medium">
                 <small>
-                  {{ item.paymentInfo.lastedPaidDate }} ({{ item.paymentInfo.lastedPaidAmount }} THB)
+                  {{ item.payment.lastedPaid.localDate }} ({{ item.payment.lastedPaid.amount }} THB)
                 </small>
               </ion-text>
             </h4>
@@ -132,15 +138,16 @@
               ชำระครั้งถัดไป<br>
               <ion-text color="medium">
                 <small>
-                  {{ item.paymentInfo.nextPaidDate }} ({{ item.paymentInfo.nextPaidAmount }} THB)
+                  {{ item.payment.nextPay.localDate }} ({{ item.payment.nextPay.amount }} THB)
                 </small>
               </ion-text>
             </h4>
-            <h4>
+            <h4 *ngIf="item.payment.extend && item.payment.extend.info">
               ชำระล่วงหน้า<br>
               <ion-text color="medium">
                 <small>
-                  {{ item.paymentInfo.prepayTimes }} เดือน ({{ item.paymentInfo.prepayAmount }} THB)
+                  {{ item.payment.extend.info.times }} เดือน ({{ item.payment.extend.info.amount }} THB)<br>
+                  ถึง {{ item.payment.extend.info.localDate }}
                 </small>
               </ion-text>
             </h4>
@@ -150,7 +157,7 @@
       </ion-modal>
     </ion-item>
 
-    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" *ngIf="totalData.length > 0">
       <ion-infinite-scroll-content loadingSpinner="circles" loadingText="กำลังดึงข้อมูลเพิ่ม...">
       </ion-infinite-scroll-content>
     </ion-infinite-scroll>
