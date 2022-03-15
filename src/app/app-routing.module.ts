@@ -61,6 +61,10 @@ const routes: Routes = [
   {
     path: 'payment-bargraph',
     loadChildren: () => import('./payment-bargraph/payment-bargraph.module').then( m => m.PaymentBargraphPageModule)
+  },
+  {
+    path: 'report-pdf',
+    loadChildren: () => import('./report-pdf/report-pdf.module').then( m => m.ReportPdfPageModule)
   }
 
 ];
