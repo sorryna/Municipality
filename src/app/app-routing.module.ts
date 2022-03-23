@@ -46,7 +46,8 @@ const routes: Routes = [
   {
     path: 'manage-dlg',
     loadChildren: () => import('./manage-dlg/manage-dlg.module').then( m => m.ManageDlgPageModule)
-  },  {
+  },
+  {
     path: 'setup-plan',
     loadChildren: () => import('./setup-plan/setup-plan.module').then( m => m.SetupPlanPageModule)
   },
@@ -71,7 +72,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, useHash: true })
   ],
   exports: [RouterModule]
 })
