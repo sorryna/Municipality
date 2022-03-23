@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ManageDlgPage } from '../manage-dlg/manage-dlg.page';
 import { ApplyPlanDlgPage } from '../apply-plan-dlg/apply-plan-dlg.page';
+import { DataService } from 'src/services/data.service';
 
 @Component({
   selector: 'app-manage',
@@ -10,19 +11,13 @@ import { ApplyPlanDlgPage } from '../apply-plan-dlg/apply-plan-dlg.page';
 })
 export class ManagePage implements OnInit {
 
-  public data = [
-    { "title": "บ้านทาวเฮาท์", "address": "90/55 หมู่ 27 ตำบล กุดกว้าง อำเภอเมืองขอนแก่น 40000", "plan": 2 },
-    { "title": "บ้านเดี่ยว", "address": "123/6 หมู่ 27 ตำบล กุดกว้าง อำเภอเมืองขอนแก่น 40000", "plan": 1 },
-    { "title": "บ้านเดี่ยว", "address": "44/12 หมู่ 6 ตำบล น้ำพอง อำเภอเมืองขอนแก่น 40000", "plan": 1 },
-    { "title": "บ้านเดี่ยว", "address": "89/20 หมู่ 10 ตำบล บ้านเป็ด อำเภอเมืองขอนแก่น 40000", "plan": 1 },
-    { "title": "บ้านเดี่ยว", "address": "56/9 หมู่ 18 ตำบล ในเมือง อำเภอเมืองขอนแก่น 40000", "plan": 1 },
-    { "title": "พิมานคอนโดปาร์ค", "address": "989/27 ตำบล ศิลา อำเภอเมืองขอนแก่น 40000", "plan": 2 },
-    { "title": "พิมานคอนโดปาร์ค", "address": "12/6 หมู่ 27 ตำบล ศิลา อำเภอเมืองขอนแก่น 40000", "plan": 2 },
-    { "title": "บ้านเดี่ยว", "address": "919/2 หมู่ 27 ตำบล ในเมือง อำเภอเมืองขอนแก่น 40000", "plan": 1 },
-  ];
+  public data: any[] = [];
 
-
-  constructor(private dlg: ModalController) { }
+  constructor(private dlg: ModalController, private dataSvc: DataService) {
+    this.dataSvc.addresses.forEach(it => {
+      this.data.push({ title: it.displayName, address: it.fullAddress, plan: it.displayName == "บ้านเดี่ยว" ? 1 : 2 })
+    });
+  }
 
   ngOnInit() {
   }
